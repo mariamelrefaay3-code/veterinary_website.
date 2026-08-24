@@ -380,8 +380,7 @@ nav a {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 25px;
-    max-width: 1200px;
-    width: 100%;   
+    max-width: 1200px; 
     margin: auto;
 }
 
@@ -3152,58 +3151,34 @@ body {
 }
 
   
-  /* =========================================
-   FINAL MOBILE RESPONSIVE
-   ========================================= */
-/* --- إصلاحات الموبايل والتجاوب --- */
-/* --- الإصلاح النهائي والنهائي المضمون للموبايل واللاب توب --- */
-@media screen and (max-width: 768px) {
-  /* منع الخروج عن حدود الشاشة تماماً */
+ @media (max-width: 768px) {
   html, body {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow-x: hidden !important;
-    zoom: 1 !important; /* الغاء أي زووم قديم كان بيبوظ الدنيا */
+    width: 1250px;
+    overflow-x: hidden;
+  }
+  
+  body {
+    zoom: 0.41; /* ثبتناه على 0.41 عشان يكون وسط ممتاز */
+    transform: none !important;
   }
 
-  /* ظبط النافبار العائم على الموبايل عشان ما يتداخلش */
-  .custom-navbar {
-    width: 92% !important;
-    max-width: 100% !important;
-    padding: 8px 12px !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 8px !important;
-  }
-
-  .nav-links {
+  /* ظبطة الشريط الاحترافية عشان الكلمات ما تدخلش في بعضها أبداً */
+  header, .navbar, nav {
+    width: 1250px !important;
+    max-width: none !important;
+    margin: 0 auto !important;
     display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 5px !important;
+    flex-wrap: nowrap !important; /* بتمنع أي كلمة تنزل تحت تانية */
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 15px !important; /* بتعمل مسافة مظبوطة بين كل كلمة والتانية عشان ما يلزقوش */
+    position: relative !important;
   }
 
-  .nav-links a, .custom-navbar a {
-    font-size: 12px !important;
-    padding: 5px 10px !important;
+  /* تصغير حجم خط الشريط حاجة بسيطة بس عشان يبعدوا عن بعض ويتفردوا براحتهم */
+  header a, .navbar a, nav a {
+    font-size: 22px !important; /* تصغير طفيف للخط يناسب المقاس */
     white-space: nowrap !important;
   }
-
-  /* ظبط أقسام الهيرو والكروت عشان تبان مظبوطة تحت بعض */
-  .hero {
-    flex-direction: column !important;
-    text-align: center !important;
-    padding: 30px 15px !important;
-  }
-
-  .hero-text {
-    text-align: center !important;
-    max-width: 100% !important;
-    top: 0 !important;
-  }
-
-  .categories-grid, .services, .products-grid {
-    grid-template-columns: 1fr !important;
-    padding: 0 10px !important;
-  }
 }
+  
