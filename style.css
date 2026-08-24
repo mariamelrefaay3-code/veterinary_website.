@@ -3180,7 +3180,7 @@ body {
     white-space: nowrap !important;
   }
 }body {
-    zoom: 0.37; /* جربي الرقم ده، ولو لقيتيه صغير قوي زلجيه لـ 0.5 أو 0.55 */
+    zoom: 0.34; /* جربي الرقم ده، ولو لقيتيه صغير قوي زلجيه لـ 0.5 أو 0.55 */
     transform: none !important;
   }
 }
