@@ -3014,25 +3014,27 @@ ul, li {
     text-decoration: none;
     transition: color 0.3s;
 }/* الكود ده بيشتغل على الموبايل والشاشات الصغيرة بس */
+
 @media (max-width: 768px) {
-    /* تصغير العنوان البارز اللي مش باين "ليه تختار المركز؟" */
-    h2, .main-title {
-        font-size: 22px !important;
-        text-align: center;
-    }
-
-    /* تقليل المسافات الكبيرة بين العناصر عشان ما تزهقش اليوزر في السكرول */
-    body {
-        padding: 0 10px;
-    }
-
-    /* ضبط الكاردات والبطاقات عشان تظهر بالكامل جوه عرض الموبايل */
-    .card, .box {
+    /* منع أي عنصر إنه يخرج بره عرض الشاشة ويقطع النص */
+    body, html {
+        overflow-x: hidden !important;
         width: 100% !important;
-        margin: 10px auto !important;
-        padding: 10px !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
-}
-.wishlist-icon:hover {
-    color: #e74c3c; /* لون القلب لما تقفي عليه بالماوس */
+
+    /* تصغير العناوين والكلمات الكبيرة عشان تكفي شاشة الموبايل */
+    h1, h2, h3, .main-title, .section-title {
+        font-size: 20px !important;
+        max-width: 100% !important;
+        word-wrap: break-word !important;
+        text-align: center !important;
+    }
+
+    /* ضبط الكاردات والبوكسات عشان تاخد عرض الشاشة صح وما ترحلش على الجنب */
+    .card, .box, div {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
 }
