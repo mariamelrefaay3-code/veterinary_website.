@@ -3155,30 +3155,54 @@ body {
    FINAL MOBILE RESPONSIVE
    ========================================= */
 /* --- إصلاحات الموبايل والتجاوب --- */
+/* --- الإصلاح النهائي والنهائي المضمون للموبايل واللاب توب --- */
 @media screen and (max-width: 768px) {
-  /* تعديل النافبار عشان ما تدخلش في بعضها */
-  header, .navbar {
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center;
-    padding: 10px !important;
-  }
-
-  /* ظبط العناصر الرئيسية تحت بعضها بدل الجنب للجنب */
-  .main-section, .hero-section, .container {
-    flex-direction: column !important;
-    display: flex !important;
+  /* منع الخروج عن حدود الشاشة تماماً */
+  html, body {
     width: 100% !important;
-  }
-
-  /* تكبير النصوص والمربعات عشان تبقى مقروءة على الشاشات الصغيره */
-  h1, h2 {
-    font-size: 1.5rem !important;
-  }
-
-  /* منع خروج العناصر برا الشاشة */
-  body, html {
+    max-width: 100% !important;
     overflow-x: hidden !important;
-    width: 100% !important;
+    zoom: 1 !important; /* الغاء أي زووم قديم كان بيبوظ الدنيا */
+  }
+
+  /* ظبط النافبار العائم على الموبايل عشان ما يتداخلش */
+  .custom-navbar {
+    width: 92% !important;
+    max-width: 100% !important;
+    padding: 8px 12px !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+
+  .nav-links {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 5px !important;
+  }
+
+  .nav-links a, .custom-navbar a {
+    font-size: 12px !important;
+    padding: 5px 10px !important;
+    white-space: nowrap !important;
+  }
+
+  /* ظبط أقسام الهيرو والكروت عشان تبان مظبوطة تحت بعض */
+  .hero {
+    flex-direction: column !important;
+    text-align: center !important;
+    padding: 30px 15px !important;
+  }
+
+  .hero-text {
+    text-align: center !important;
+    max-width: 100% !important;
+    top: 0 !important;
+  }
+
+  .categories-grid, .services, .products-grid {
+    grid-template-columns: 1fr !important;
+    padding: 0 10px !important;
   }
 }
