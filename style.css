@@ -3157,7 +3157,29 @@ body {
   }
   
   /* دي بتخلي الموبايل يعمل زوم أوت (تصغير) تلقائي للصفحة كلها عشان تبان كلها قدامك */
-  body {
+/* ===== حل نهائي لشريط التنقل (Navbar) على الموبايل ===== */
+@media (max-width: 768px) {
+  /* تثبيت مكان الهيدر والنافبار في أعلى الصفحة بعرض الموقع الأصلي */
+  header, .navbar, nav {
+    width: 1250px !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    position: relative !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 10px 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* منع تداخل اللوجو أو كلمة المركز مع باقي اللينكات */
+  .logo, .brand, h1, h2 {
+    white-space: nowrap !important;
+  }
+}body {
     zoom: 0.40; /* جربي الرقم ده، ولو لقيتيه صغير قوي زلجيه لـ 0.5 أو 0.55 */
     transform: none !important;
   }
