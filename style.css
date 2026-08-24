@@ -3110,3 +3110,42 @@ body {
         margin: 0 !important;
     }
 }
+@media (max-width: 768px) {
+
+    .navbar {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .navbar > * {
+        max-width: 100%;
+    }
+
+    .hero,
+    .home,
+    .section,
+    .products,
+    .products-grid {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+}
