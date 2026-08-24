@@ -3158,3 +3158,19 @@ body {
     overflow-x: hidden;
   }
 }
+/* ضبط العرض على الموبايل ومنع خروج العناصر يمين أو شمال */
+@media (max-width: 768px) {
+  body, html {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+  
+  /* لو الـ Navbar أو الهيدر عريض، نخليه يأخد عرض الشاشة بس */
+  header, .navbar {
+    width: 100% !important;
+    max-width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+  }
+}
