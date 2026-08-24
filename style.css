@@ -3151,33 +3151,223 @@ body {
 }
 
   
-  @media (max-width: 768px) {
-  html, body {
-    width: 1250px;
-    overflow-x: hidden;
-  }
-  
-  body {
-    zoom: 0.41; /* ثبتناه على 0.41 عشان يكون وسط ممتاز */
-    transform: none !important;
-  }
+  /* =========================================
+   FINAL MOBILE RESPONSIVE
+   ========================================= */
 
-  /* ظبطة الشريط الاحترافية عشان الكلمات ما تدخلش في بعضها أبداً */
-  header, .navbar, nav {
-    width: 1250px !important;
-    max-width: none !important;
-    margin: 0 auto !important;
-    display: flex !important;
-    flex-wrap: nowrap !important; /* بتمنع أي كلمة تنزل تحت تانية */
-    justify-content: space-between !important;
-    align-items: center !important;
-    gap: 15px !important; /* بتعمل مسافة مظبوطة بين كل كلمة والتانية عشان ما يلزقوش */
-    position: relative !important;
-  }
+@media (max-width: 768px) {
 
-  /* تصغير حجم خط الشريط حاجة بسيطة بس عشان يبعدوا عن بعض ويتفردوا براحتهم */
-  header a, .navbar a, nav a {
-    font-size: 22px !important; /* تصغير طفيف للخط يناسب المقاس */
-    white-space: nowrap !important;
-  }
-} 
+    html,
+    body {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        overflow-x: hidden !important;
+    }
+
+    /* النافبار */
+    .navbar-wrapper {
+        width: 100% !important;
+        padding: 0 8px !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+
+    .custom-navbar {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 7px 10px !important;
+        gap: 5px !important;
+        border-radius: 25px !important;
+    }
+
+    .nav-logo {
+        font-size: 10px !important;
+        gap: 4px !important;
+        flex-shrink: 1 !important;
+    }
+
+    .nav-logo .logo-img {
+        width: 28px !important;
+        height: 28px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .nav-links {
+        gap: 2px !important;
+        flex-shrink: 1 !important;
+    }
+
+    .nav-links a {
+        font-size: 10px !important;
+        padding: 5px 6px !important;
+        white-space: nowrap !important;
+    }
+
+    .nav-actions {
+        gap: 3px !important;
+        flex-shrink: 1 !important;
+    }
+
+    .search-mini {
+        max-width: 90px !important;
+    }
+
+    .search-mini input {
+        width: 55px !important;
+        font-size: 9px !important;
+    }
+
+    .lang-btn {
+        padding: 5px 7px !important;
+        font-size: 9px !important;
+    }
+
+    .cta-btn {
+        padding: 5px 8px !important;
+        font-size: 9px !important;
+    }
+
+
+    /* اللوجو الكبير واسم المركز */
+    .site-header {
+        width: 100% !important;
+        padding: 25px 15px !important;
+        gap: 15px !important;
+        flex-wrap: wrap !important;
+    }
+
+    .site-header img {
+        width: 150px !important;
+        max-width: 150px !important;
+        margin: 0 !important;
+    }
+
+    .header-text {
+        max-width: 100% !important;
+    }
+
+    .header-text h1 {
+        font-size: 28px !important;
+    }
+
+    .header-text h2 {
+        font-size: 20px !important;
+    }
+
+
+    /* الهيرو */
+    .hero {
+        width: 100% !important;
+        min-height: auto !important;
+        padding: 35px 18px !important;
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+
+    .hero-text,
+    .hero-content,
+    .hero-container {
+        position: static !important;
+        top: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .hero-text h1 {
+        font-size: 34px !important;
+    }
+
+    .hero-text p {
+        font-size: 15px !important;
+    }
+
+    .hero-buttons {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+
+    .hero-btn.white-btn,
+    .hero-dropdown .hero-btn {
+        width: 200px !important;
+        height: 55px !important;
+        font-size: 15px !important;
+    }
+
+    .hero-animal {
+        width: 280px !important;
+        height: 280px !important;
+        max-width: 100% !important;
+    }
+
+    .animal-card {
+        width: 190px !important;
+        height: 190px !important;
+        min-width: 190px !important;
+        min-height: 190px !important;
+    }
+
+
+    /* الخدمات */
+    .services {
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 20px !important;
+    }
+
+
+    /* الأقسام */
+    .categories-section {
+        width: 100% !important;
+        padding: 50px 15px !important;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
+    }
+
+    .category-card {
+        width: 100% !important;
+    }
+
+
+    /* المنتجات */
+    .products-section {
+        width: 100% !important;
+        padding: 40px 15px !important;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
+    }
+
+    .product-card {
+        width: 100% !important;
+    }
+
+
+    /* الأعلاف */
+    .feed-list {
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
+    }
+
+
+    /* التواصل */
+    .contact-cards {
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
+        padding: 0 15px !important;
+    }
+
+
+    /* الصور */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+}
