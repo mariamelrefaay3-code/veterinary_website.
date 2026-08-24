@@ -3165,26 +3165,27 @@ body {
   }
   
   body {
-    zoom: 0.41; /* ثبتناه على 0.41 عشان يكون وسط ممتاز */
+    zoom: 0.43; /* ثبتناه على 0.41 عشان يكون وسط ممتاز */
     transform: none !important;
   }
 
   /* ظبطة الشريط الاحترافية عشان الكلمات ما تدخلش في بعضها أبداً */
+ @media (max-width: 768px) {
+  /* تظبيط الشريط فوق فقط بدون المساس بباقي الصفحة */
   header, .navbar, nav {
-    width: 1250px !important;
-    max-width: none !important;
-    margin: 0 auto !important;
     display: flex !important;
-    flex-wrap: nowrap !important; /* بتمنع أي كلمة تنزل تحت تانية */
-    justify-content: space-between !important;
+    flex-direction: column !important;
     align-items: center !important;
-    gap: 15px !important; /* بتعمل مسافة مظبوطة بين كل كلمة والتانية عشان ما يلزقوش */
-    position: relative !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
   }
 
-  /* تصغير حجم خط الشريط حاجة بسيطة بس عشان يبعدوا عن بعض ويتفردوا براحتهم */
   header a, .navbar a, nav a {
-    font-size: 22px !important; /* تصغير طفيف للخط يناسب المقاس */
+    font-size: 16px !important;
     white-space: nowrap !important;
+    margin: 2px 0 !important;
   }
 }
