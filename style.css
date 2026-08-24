@@ -3149,3 +3149,12 @@ body {
         overflow-wrap: break-word;
     }
 }
+/* تصغير الموقع كله نسبياً على الموبايل عشان يفضل جنب بعضه زي اللاب */
+@media (max-width: 768px) {
+  body {
+    transform: scale(0.85); /* ممكن تقللي الرقم لـ 0.75 أو 0.8 لو الشاشة أصغر */
+    transform-origin: top center;
+    width: 1170px; /* دي تقريبا عرض الشاشة العادية بتاعت اللاب اللي مصممة عليها */
+    overflow-x: hidden;
+  }
+}
