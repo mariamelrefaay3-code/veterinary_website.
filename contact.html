@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>تواصل معنا | المركز الطبي للخدمات البيطرية</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Cairo", sans-serif;
+            background:
+                radial-gradient(circle at 10% 10%, rgba(214, 190, 119, 0.20), transparent 28%),
+                radial-gradient(circle at 90% 20%, rgba(214, 190, 119, 0.16), transparent 30%),
+                linear-gradient(135deg, #faf8f1, #f0eee7);
+            color: #4d4a43;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            width: 100%;
+
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(190, 171, 113, 0.20);
+
+            box-shadow: 0 5px 25px rgba(70, 65, 50, 0.06);
+        }
+
+        .nav-container {
+            width: min(1200px, 92%);
+            margin: auto;
+
+            min-height: 78px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            text-decoration: none;
+            color: #5d584c;
+            font-weight: 800;
+            font-size: 18px;
+            white-space: nowrap;
+        }
+
+        .logo-image {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+
+            object-fit: cover;
+
+            background: #eee6c9;
+            padding: 6px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #696457;
+
+            padding: 10px 18px;
+
+            border-radius: 14px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: #e8d89f;
+            color: #514b3e;
+
+            transform: translateY(-2px);
+            box-shadow: 0 7px 18px rgba(190, 165, 92, 0.20);
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            width: min(1200px, 92%);
+            margin: 55px auto 30px;
+
+            min-height: 390px;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 50px;
+
+            padding: 60px;
+
+            border-radius: 40px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.96),
+                    rgba(246,241,220,0.92)
+                );
+
+            border: 1px solid rgba(190, 170, 100, 0.20);
+
+            box-shadow:
+                0 25px 70px rgba(71, 66, 50, 0.12);
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            border-radius: 50%;
+
+            background: rgba(220, 200, 130, 0.18);
+
+            left: -100px;
+            bottom: -180px;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 220px;
+            height: 220px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.65);
+
+            right: -70px;
+            top: -80px;
+        }
+
+
+        .hero-text {
+            position: relative;
+            z-index: 2;
+
+            max-width: 650px;
+        }
+
+        .hero-small {
+            display: inline-block;
+
+            padding: 8px 17px;
+
+            margin-bottom: 18px;
+
+            border-radius: 50px;
+
+            background: #eee4bd;
+            color: #766b4f;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            box-shadow: 0 8px 20px rgba(170, 150, 85, 0.12);
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 5vw, 65px);
+
+            line-height: 1.2;
+
+            color: #4e4a41;
+
+            margin-bottom: 18px;
+
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            color: #b39b55;
+        }
+
+        .hero p {
+            font-size: 17px;
+            line-height: 2;
+
+            color: #777267;
+
+            max-width: 570px;
+        }
+
+
+        /* ================= HERO IMAGE ================= */
+
+        .hero-image {
+            position: relative;
+            z-index: 2;
+
+            width: 330px;
+            height: 330px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            background: linear-gradient(
+                145deg,
+                #eee5bd,
+                #ffffff
+            );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            box-shadow:
+                0 25px 50px rgba(90, 80, 55, 0.12);
+
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        .hero-image img {
+            width: 82%;
+            height: 82%;
+
+            object-fit: contain;
+
+            border-radius: 50%;
+        }
+
+        @keyframes floating {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+        }
+
+
+        /* ================= TITLE ================= */
+
+        .section-title {
+            text-align: center;
+
+            margin: 70px auto 45px;
+
+            width: min(800px, 90%);
+        }
+
+        .section-title span {
+            color: #b29a56;
+
+            font-size: 14px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+        }
+
+        .section-title h2 {
+            margin-top: 8px;
+
+            font-size: clamp(28px, 4vw, 42px);
+
+            color: #4e4a41;
+        }
+
+        .section-title p {
+            margin-top: 10px;
+
+            color: #858075;
+
+            line-height: 1.9;
+        }
+
+
+        /* ================= CONTACT CARDS ================= */
+
+        .contact-container {
+            width: min(1150px, 92%);
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 28px;
+        }
+
+        .contact-card {
+            position: relative;
+
+            min-height: 360px;
+
+            padding: 38px 28px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.92),
+                    rgba(246,243,231,0.92)
+                );
+
+            border-radius: 30px;
+
+            border: 1px solid rgba(190, 170, 100, 0.18);
+
+            box-shadow:
+                0 18px 45px rgba(73, 68, 54, 0.10);
+
+            text-align: center;
+
+            overflow: hidden;
+
+            transition:
+                transform 0.4s ease,
+                box-shadow 0.4s ease;
+        }
+
+        .contact-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 160px;
+            height: 160px;
+
+            border-radius: 50%;
+
+            background: rgba(225, 208, 145, 0.22);
+
+            top: -80px;
+            right: -60px;
+
+            transition: 0.5s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-12px);
+
+            box-shadow:
+                0 28px 65px rgba(67, 62, 48, 0.
+                16);
+        }
+
+        .contact-card:hover::before {
+            transform: scale(1.5);
+        }
+
+
+        /* ================= ICON ================= */
+.contact-icon {
+    width: 120px;
+    height: 120px;
+
+    margin: 0 auto 22px;
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    background: #eee6c9;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 12px 25px rgba(174, 153, 85, 0.18);
+
+    position: relative;
+    z-index: 2;
+
+    transition: 0.4s ease;
+}
+
+.contact-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 28px;
+}
+        
+        .contact-card h3 {
+            position: relative;
+            z-index: 2;
+
+            color: #575247;
+
+            font-size: 22px;
+
+            margin-bottom: 12px;
+        }
+
+        .contact-card p {
+            position: relative;
+            z-index: 2;
+
+            color: #827d72;
+
+            line-height: 1.9;
+
+            font-size: 14px;
+
+            min-height: 55px;
+        }
+
+        .phone-number {
+            display: block;
+
+            position: relative;
+            z-index: 2;
+
+            margin: 15px 0;
+
+            font-size: 18px;
+            font-weight: 800;
+
+            color: #514d44;
+
+            direction: ltr;
+        }
+
+
+        /* ================= BUTTON ================= */
+
+        .contact-btn {
+            position: relative;
+            z-index: 2;
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            min-width: 145px;
+
+            padding: 12px 22px;
+
+            border-radius: 15px;
+
+            text-decoration: none;
+
+            background: linear-gradient(
+                135deg,
+                #dbc878,
+                #c8ae57
+            );
+
+            color: #fff;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            box-shadow:
+                0 10px 22px rgba(170, 145, 69, 0.25);
+
+            transition: 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 15px 28px rgba(170, 145, 69, 0.35);
+        }
+
+
+        /* ================= CTA ================= */
+
+        .cta {
+            width: min(1100px, 92%);
+
+            margin: 85px auto 70px;
+
+            padding: 55px 35px;
+
+            border-radius: 35px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e9db9e,
+                    #f6f0d6
+                );
+
+            box-shadow:
+                0 20px 50px rgba(91, 81, 53, 0.12);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .cta::before,
+        .cta::after {
+            content: "";
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.35);
+        }
+
+        .cta::before {
+            width: 180px;
+            height: 180px;
+
+            top: -100px;
+            right: -50px;
+        }
+
+        .cta::after {
+            width: 140px;
+            height: 140px;
+
+            bottom: -80px;
+            left: -30px;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta h2 {
+            font-size: 32px;
+
+            color: #4d483b;
+
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            color: #716b5c;
+
+            margin-bottom: 25px;
+
+            font-size: 15px;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+
+            padding: 14px 30px;
+
+            border-radius: 16px;
+
+            background: #514b3e;
+
+            color: white;
+            text-decoration: none;
+
+            font-weight: 700;
+
+            transition: 0.3s ease;
+
+            box-shadow: 0 10px 25px rgba(65, 60, 49, 0.18);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-4px);
+
+            background: #3f3a31;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            padding: 35px 20px;
+
+            background: #514c41;
+
+            color: #eee8d6;
+
+            text-align: center;
+        }
+
+        footer h3 {
+            font-size: 18px;
+
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            font-size: 13px;
+
+            color: #d3cdbb;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 900px) {
+
+            .hero {
+                padding: 45px 30px;
+
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+            .hero-text {
+                max-width: 100%;
+            }
+
+            .hero p {
+                margin: auto;
+            }
+
+            .hero-image {
+                width: 250px;
+                height: 250px;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .nav-container {
+                justify-content: center;
+            }
+
+            .logo {
+                display: none;
+            }
+
+            .nav-links {
+                width: 100%;
+
+                justify-content: center;
+
+                flex-wrap: wrap;
+            }
+
+            .nav-links a {
+                padding: 8px 12px;
+
+                font-size: 12px;
+            }
+
+            .hero {
+                margin-top: 25px;
+
+                min-height: auto;
+
+                border-radius: 28px;
+
+                padding: 40px 22px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .hero-image {
+                width: 210px;
+                height: 210px;
+            }
+
+            .section-title {
+                margin-top: 55px;
+            }
+
+            .contact-card {
+                min-height: 340px;
+            }
+
+            .cta {
+                margin-top: 60px;
+
+                border-radius: 28px;
+            }
+
+            .cta h2 {
+                font-size: 26px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="nav-container">
+
+            <a href="index.html" class="logo">
+
+                <!-- لو عندك لوجو حطي مساره هنا -->
+                <img
+                    src="logo.jpg"
+                    class="logo-image"
+                    alt="المركز الطبي للخدمات البيطرية"
+                >
+
+                <span>
+                    المركز الطبي للخدمات البيطرية
+                </span>
+
+            </a>
+
+
+            <div class="nav-links">
+
+                <a href="index.html">
+                    الرئيسية
+                </a>
+
+                <a href="products.html">
+                    الأدوية
+                </a>
+
+                <a href="food.html">
+                    الأعلاف
+                </a>
+
+                <a href="services.html">
+                    الخدمات
+                </a>
+
+                <a href="contact.html" class="active">
+                    تواصل معنا
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <span class="hero-small">
+                نحن هنا لخدمتك
+            </span>
+
+            <h1>
+                تواصل
+                <span>معنا</span>
+                بسهولة
+            </h1>
+
+            <p>
+                سواء كنت بحاجة إلى استفسار عن أحد المنتجات،
+                أو طلب خدمة بيطرية، أو ترغب في التواصل معنا،
+                فريقنا جاهز لمساعدتك والإجابة عن جميع استفساراتك.
+            </p>
+
+        </div>
+
+
+        <div class="hero-image">
+
+            <!-- حطي هنا صورة حيوان / طبيب بيطري -->
+            <img
+                src="u.jpg"
+                alt="الخدمات البيطرية"
+            >
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= TITLE ================= -->
+
+    <section class="section-title">
+
+        <span>
+            CONTACT US
+        </span>
+
+        <h2>
+            اختار طريقة التواصل المناسبة ليك
+        </h2>
+
+        <p>
+            تقدر تتواصل معنا مباشرة من خلال الهاتف أو WhatsApp
+            أو تابعنا على Facebook لمعرفة كل جديد.
+        </p>
+
+    </section>
+
+
+
+    <!-- ================= CONTACT CARDS ================= -->
+
+    <section class="contact-container">
+
+
+        <!-- PHONE -->
+
+        <div class="contact-card">
+    <div class="contact-icon">
+        <img src="uu.jpg" alt="اتصال">
+    </div>
+    
+    <h3>اتصل بنا</h3>
+    
+    <p>
+        للتواصل والاستفسار<br>
+        عن المنتجات والخدمات
+    </p>
+    
+    <!-- رقم الموبايل وزراره -->
+    <span class="phone-number">01090970082</span>
+    <a href="tel:01090970082" class="contact-btn">اتصل الآن</a>
+    
+    <!-- رقم الأرضي وزراره -->
+    <span class="phone-number">0573610570</span>
+    <a href="tel:0573610570" class="contact-btn">اتصل الآن</a>
+</div>
+
+
+
+        <!-- WHATSAPP -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+
+                <img
+                    src="uuu.jpg"
+                    alt="WhatsApp"
+                >
+
+            </div>
+
+            <h3>
+                WhatsApp
+            </h3>
+
+            <p>
+                اطلب منتجاتك واستفسر
+                عن الخدمات بكل سهولة
+            </p>
+
+            <span class="phone-number">
+                01090970082
+            </span>
+
+            <a
+                href="https://wa.me/201090970082"
+                target="_blank"
+                class="contact-btn"
+            >
+                ابدأ المحادثة
+            </a>
+
+        </div>
+
+
+
+        <!-- FACEBOOK -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+
+                <img
+                    src="uuuu.jpg"
+                    alt="Facebook"
+                >
+
+            </div>
+
+            <h3>
+                Facebook
+            </h3>
+
+            <p>
+                تابع صفحتنا وتعرف على
+                أحدث المنتجات والخدمات
+            </p>
+
+            <span class="phone-number">
+                Facebook Page
+            </span>
+
+            <a
+                href=" https://www.facebook.com/share/1AdcUGgySF/?mibextid=wwXIfr"
+                target="_blank"
+                class="contact-btn"
+            >
+                زيارة الصفحة
+            </a>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="cta">
+
+        <div class="cta-content">
+
+            <h2>
+                محتاج مساعدة؟
+            </h2>
+
+            <p>
+                فريق المركز الطبي للخدمات البيطرية جاهز لمساعدتك
+                والإجابة عن استفساراتك.
+            </p>
+
+            <a
+                href="https://wa.me/201090970082"
+                target="_blank"
+                class="cta-btn"
+            >
+                تواصل معنا الآن
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <h3>
+            المركز الطبي للخدمات البيطرية
+        </h3>
+
+        <p>
+            خدمات بيطرية متكاملة بجودة واهتمام
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | المركز الطبي للخدمات البيطرية</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: #f5f8f7;
+            color: #173b35;
+        }
+        /* ================= HEADER ================= */
+        header {
+            background: linear-gradient(135deg, #0d5c50, #16806e);
+            color: white;
+            padding: 25px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+        }
+        .logo h1 {
+            font-size: 25px;
+            margin-bottom: 5px;
+        }
+        .logo p {
+            font-size: 13px;
+            opacity: 0.85;
+        }
+        .home-btn {
+            text-decoration: none;
+            color: #0d5c50;
+            background: white;
+            padding: 12px 22px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+        .home-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+        }
+        /* ================= HERO ================= */
+        .hero {
+            text-align: center;
+            padding: 55px 20px 35px;
+        }
+        .hero .small-title {
+            color: #16806e;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .hero h2 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+        .hero p {
+            color: #71817d;
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.8;
+        }
+        /* ================= TOOLS ================= */
+        .tools {
+            width: 86%;
+            max-width: 1100px;
+            margin: 0 auto 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            align-items: center;
+        }
+        .search-box {
+            position: relative;
+            width: 100%;
+            max-width: 650px;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 16px 22px;
+            border: 1px solid #dce7e4;
+            border-radius: 35px;
+            outline: none;
+            background: white;
+            font-size: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            text-align: right;
+        }
+        .search-box input:focus {
+            border-color: #16806e;
+            box-shadow: 0 5px 25px rgba(22,128,110,0.12);
+        }
+        /* ================= CATEGORIES ================= */
+        .categories {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .category-btn {
+            border: none;
+            background: white;
+            color: #176457;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .category-btn:hover,
+        .category-btn.active {
+            background: #16806e;
+            color: white;
+            transform: translateY(-2px);
+        }
+        /* ================= PRODUCTS ================= */
+        .products-container {
+            width: 86%;
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            padding-bottom: 70px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 22px;
+            overflow: hidden;
+            border: 1px solid #e5eeeb;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            transition: 0.35s;
+            position: relative;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+        /* ================= IMAGE ================= */
+        .product-image {
+            width: 100%;
+            height: 210px;
+            background: #eef7f4;
+            overflow: hidden;
+        }
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+
+            display: block;
+            transition: 0.4s;
+        }
+        .product-card:hover .product-image img {
+            transform: scale(1.04);
+        }
+        /* ================= INFO ================= */
+        .product-info {
+            padding: 22px;
+        }
+        .product-number {
+            color: #16806e;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        .product-name {
+            font-size: 20px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+            color: #173b35;
+        }
+        .product-category {
+            display: inline-block;
+            background: #edf8f5;
+            color: #16806e;
+            padding: 6px 11px;
+            border-radius: 15px;
+            font-size: 11px;
+            margin-bottom: 12px;
+        }
+        .product-description {
+            color: #778783;
+            font-size: 14px;
+            line-height: 1.8;
+            min-height: 75px;
+            margin-bottom: 18px;
+        }
+        /* ================= BUTTONS ================= */
+        .product-actions {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            margin-top: 15px;
+        }
+        .whatsapp-btn {
+            width: 100%;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #16806e;
+            color: white;
+            border: none;
+            border-radius: 11px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .whatsapp-btn:hover {
+            background: #0d5c50;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(13,92,80,0.18);
+        }
+        .wishlist-btn {
+            width: 100%;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            color: #16806e;
+            border: 1px solid #16806e;
+            border-radius: 11px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .wishlist-btn:hover {
+            background: #edf8f5;
+            transform: translateY(-2px);
+        }
+        .wishlist-btn.saved {
+            background: #16806e;
+            color: white;
+        }
+        /* ================= NO RESULTS ================= */
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 70px 20px;
+            color: #7b8986;
+            display: none;
+            font-size: 17px;
+        }
+        /* ================= FOOTER ================= */
+        footer {
+            background: #103f37;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        footer h3 {
+            margin-bottom: 8px;
+        }
+        footer p {
+            font-size: 13px;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        /* ================= MOBILE ================= */
+        @media (max-width: 900px) {
+            .products-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero {
+                padding-top: 40px;
+            }
+            .hero h2 {
+                font-size: 28px;
+            }
+            .products-container {
+                grid-template-columns: 1fr;
+                width: 90%;
+            }
+            .tools {
+                width: 90%;
+            }
+            .product-image {
+                height: 230px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ================= HEADER ================= -->
+    <header>
+        <div class="logo">
+            <h1>المركز الطبي للخدمات البيطرية</h1>
+            <p>Veterinary Medical Center</p>
+        </div>
+        <a href="index.html" class="home-btn">
+            الصفحة الرئيسية
+        </a>
+    </header>
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+        <div class="small-title">
+            VETERINARY PRODUCTS
+        </div>
+        <h2>
+            المنتجات البيطرية
+        </h2>
+        <p>
+            اكتشف مجموعة متنوعة من المنتجات والمستحضرات البيطرية
+            المختارة بعناية لدعم صحة الحيوانات والدواجن وتحسين الإنتاج.
+        </p>
+    </section>
+    <!-- ================= SEARCH ================= -->
+    <div class="tools">
+        <div class="search-box">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="ابحث عن منتج أو تصنيف..."
+            >
+        </div>
+        <div class="categories">
+            <button
+                class="category-btn active"
+                onclick="filterCategory('all', this)"
+            >
+                الكل
+            </button>
+            <button
+                class="category-btn"
+                onclick="filterCategory('فيتامينات', this)"
+            >
+                فيتامينات
+            </button>
+            <button
+                class="category-btn"
+                onclick="filterCategory('مضادات حيوية', this)"
+            >
+                مضادات حيوية
+            </button>
+            <button
+                class="category-btn"
+                onclick="filterCategory('أملاح معدنية ومكملات غذائية', this)"
+            >
+                أملاح ومكملات
+            </button>
+            <button
+                class="category-btn"
+                onclick="filterCategory('مضادات الالتهاب والمسكنات', this)"
+            >
+                مضادات التهاب
+            </button>
+        </div>
+    </div>
+    <!-- ================= PRODUCTS ================= -->
+    <main>
+        <div
+            class="products-container"
+            id="productsContainer"
+        >
+            <div
+                class="no-results"
+                id="noResults"
+            >
+                لم يتم العثور على أي منتج.
+            </div>
+        </div>
+    </main>
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <h3>
+            المركز الطبي للخدمات البيطرية
+        </h3>
+       
+        <p>
+            Veterinary Medical Center ©️ 2026
+        </p>
+    </footer>
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        /* =====================================================
+           PRODUCTS
+           المنتجات كلها كما هي
+        ===================================================== */
+        const products = [
+            {
+                name: "Mento Life | مينتو لايف",
+                category: "منتجات بيطرية",
+                description: "انتعاش وحماية طبيعية لمزرعتك 🌿🐓 اجعل قطيعك يتنفس براحة وصحة ممتازة مع مينتو لايف! التركيبة المثالية المستخلصة من زيوت النعناع والأعشاب الطبيعية والمصممة خصيصًا لدعم الجهاز التنفسي وحماية الدواجن والطيور.",
+                image: "dd.jpg"
+            },
+            {
+                name: "10% | Vitamin-C 10%",
+                category: "فيتامينات",
+                description: "احمِ مزرعتك وطيورك من أوقات الحر الشديد والتغيرات المناخية مع فيتامين - سي 10%! الدرع الأقوى لمواجهة الإجهاد الحراري ورفع كفاءة القطيع وضمان أعلى مستويات الإنتاجية. 🍊✨",
+                image: "d.jpg"
+            },
+            {
+                name: "Keto Free | الحل الطبيعي لصحة هضمية مثالية",
+                category: "دعم هضمي",
+                description: "السرعة والفاعلية: محلول بتركيبة طبيعية 100% يشتغل فوراً على ضبط وترتيب حركة الجهاز الهضمي للحيوان. حماية وراحة: يحمي من اضطرابات الهضم والتمثيل الغذائي ويدعم نشاط الحيوان وحيويته. الأمان: مكونات طبيعية بالكامل وآمنة تماماً على صحة الماشية. العبوة: 250 مل.",
+                image: "ddd.jpg"
+            },
+            {
+                name: "Digest Punch PROBIOTICS | درع الحماية والبروبيوتيك الأول",
+                category: "بروبيوتيك ودعم هضمي",
+                description: "قوة البروبيوتيك: يعيد التوازن البيولوجي للكرش والأمعاء، ويضمن أقصى استفادة وامتصاص للغذاء. صفر فترة سحب (Zero Withdrawal Time): أمان تام وسهولة استخدام من غير ما تقلق من أي بقايا في اللبن أو اللحم! دعم هضمي شامل: تركيبة مخصصة لرفع المناعة الهضمية وتحسين كفاءة العلف.",
+                image: "dddd.jpg"
+            },
+            {
+                name: "Bovi Care | الداعم الأول لكفاءة وصحة الكبد",
+                category: "دعم الكبد والتمثيل الغذائي",
+                description: "حماية ودعم الكبد (Liver Support): تركيبة متخصصة تعمل على حماية خلايا الكبد وتحسين وظائفه للتعامل مع أي إجهاد أو سموم. تحسين التمثيل الغذائي: يساعد بشكل مباشر في فتح الشهية، وزيادة معدل التحويل الغذائي لضمان أعلى استفادة من العلف. نشاط وطاقة: ينشط الدورة الدموية ويعيد الحيوية للحيوان سريعاً بعد فترات العلاج أو الإجهاد البدني. العبوة: 250 مل.",
+                image: "ddddd.jpg"
+            },
+            {
+                name: "RA COX (راك وكس فيت) - درع الحماية القوي ضد الكوكسيديا",
+                category: "مضاد كوكسيديا",
+                description: "القضاء الفعّال والنهائي: تركيبة متطورة وسريعة الامتصاص تقضي تماماً على حويصلات الكوكسيديا (Coccidia) في الأمعاء، مما يوقف العدوى ويمنع انتشارها في القطيع. حماية مزدوجة ومعالجة للإسهال: لا يكتفي بالقضاء على الطفيل فقط، بل يساهم في علاج الإسهالات المصاحبة للإصابة، مما يحافظ على السوائل والعناصر الغذائية الحيوية داخل جسم الحيوان. تحسين التحويل الغذائي: إعادة ترميم بطانة الأمعاء التالفة تضمن عودة الامتصاص الغذائي لمعدلاته الطبيعية سريعاً، مما ينعكس على وزن الحيوان وصحته العامة. فتح الشهية واستعادة الحيوية: يحسن من طعم العلف، ويحفز الحيوان على الأكل، مما يسرع من فترة النقاهة واستعادة كامل طاقته. العبوة: 100 مل.",
+                image: "dddddd.jpg"
+            },
+            {
+                name: "دوكسينال | DOXYNAL",
+                category: "مضادات حيوية",
+                description: "بودرة للذوبان في الماء — 20 جم. التركيبة: 10% دوكسي سيكلين + 10% تايلوزين. الاستخدام: للطيور والدواجن (دجاج، بط، رومي). الفاعلية: المزيج الأقوى لعلاج أمراض الجهاز التنفسي (الخنفرة وCRD) والعدوى البكتيرية المركبة.",
+                image: "mm.jpg"
+            },
+            {
+                name: "دو - فوس (DO-PHOS) | مجموعة أملاح معدنية سائلة",
+                category: "أملاح معدنية ومكملات غذائية",
+                description: "دعم متكامل وصحة أفضل لحلالك وطيورك! منتج دو - فوس هو المكمل المثالي من الأملاح المعدنية السائلة المخصصة للإضافة إلى ماء الشرب. تم تصميمه بتركيبة متوازنة تلبي الاحتياجات الغذائية الضرورية لمختلف الحيوانات والدواجن لضمان أفضل أداء وصحة عامة.",
+                image: "ddddddddd.jpg"
+            },
+            {
+                name: "انروبات (ENROPAT) - 50 مل | علاج ودعم تنفسي ومعوي متكامل للدواجن",
+                category: "مضادات حيوية",
+                description: "انروبات هو تركيبة علاجية قوية ومزدوجة تجمع بين مضادين حيويين: أنروفلوكساسين 10% + تايلوزين 10%، لتوفير حماية شاملة وسريعة للطيور والدواجن. فاعلية مضاعفة: يقضي على مشاكل الجهاز التنفسي والالتهابات المعوية. واسع المجال: يستهدف البكتيريا والمايكوبلازما بفاعلية عالية. مناسب لكافة الأعمار: يمنح حماية ممتازة للكتاكيت والدواجن الكبيرة. العبوة: 50 مل بقطارة مدمجة لسهولة المعايرة والاستخدام.",
+                image: "dddddddddd.jpg"
+            },
+            {
+                name: "مابكولايت (MAPCOLITE)",
+                category: "أملاح معدنية ومكملات غذائية",
+                description: "مخلوط بيطري من الأملاح المعدنية والفيتامينات والكربوهيدرات، يساعد على الوقاية من الجفاف وتعويض السوائل والأملاح المفقودة، ومواجهة الإجهاد الحراري، مع دعم الطاقة والمناعة والنشاط.",
+                image: "mmm.jpg"
+            },
+            {
+                name: "زيت برافين (طبي وبيطري)",
+                category: "ملينات ومساعدات هضمية",
+                description: "زيت برافين شفاف وعالي النقاء يُستخدم في الأغراض الطبية والبيطرية. يُستعمل كملين معوي للمساعدة في علاج الإمساك واحتباس الفضلات وتسهيل الهضم لدى الحيوانات مثل المهور والأبقار، كما يساعد على حماية الجلد وتلطيف التشققات. شفاف وعديم الرائحة.",
+                image: "mmmm.jpg"
+            },
+            {
+                name: "أد3هـ (AD3E) – محلول فموي متكامل للحيوانات والدواجن",
+                category: "فيتامينات ومقويات",
+                description: "مزيج متوازن من فيتامينات A وD3 وE مصمم خصيصاً لدعم صحة وإنتاجية الماشية والدواجن. يساعد على تعزيز النمو وزيادة معدلات الإنتاج والخصوبة، وتقوية المناعة والمقاومة الطبيعية للأمراض والإجهاد، كما يساعد على امتصاص الكالسيوم والفوسفور لدعم قوة العظام وتحسين جودة قشرة البيض.",
+                image: "mmmmm.jpg"
+            },
+            {
+                name: "أوميجران دي إكس (Omegran D.X.)",
+                category: "مضادات حيوية وعلاجات بيطرية",
+                description: "مستحضر بيطري متكامل يساعد في الوقاية والعلاج من الأمراض التنفسية والمعوية لدى الحيوانات والدواجن. يساهم في رفع المناعة وتحسين معدلات التحويل والنمو، كما يساعد على تقليل آثار الإجهاد الناتج عن التقلبات الجوية والنقل والتحصين.",
+                image: "rr.jpg"
+            },
+            {
+                name: " HERBA YEAST ",
+                category: "مكملات غذائية ودعم الإنتاج",
+                description: "مكمل غذائي طبيعي يحتوي على الخميرة والمورينجا والعناصر المعدنية، مصمم لدعم صحة وإنتاجية الطيور والدواجن. يساعد على تحسين إنتاج وجودة البيض ونسبة الفقس، ويدعم الشهية والهضم والمناعة، كما يساهم في تحسين الاستفادة من الغذاء والنمو.",
+                image: "kk.jpg"
+            },
+            {
+                name: "HERBA YEAST (هيربا يست)",
+                category: "مكملات غذائية وإضافات علفية",
+                description: "مكمل غذائي وإضافة علفية بيطرية تجمع بين الخميرة وعشبة المورينجا الغنية بالعناصر الغذائية. يُستخدم للمواشي والدواب للمساعدة في زيادة إنتاج اللبن بكفاءة، كما يُستخدم للدواجن والطيور لدعم وتحسين إنتاج البيض.",
+                image: "yy.jpg"
+            },
+            {
+                name: "بريمكس 4HC (4HC PREMIX)",
+                category: "بريمكسات وفيتامينات ومعادن",
+                description: "مخلوط علفي متوازن يحتوي على مجموعة من الفيتامينات والمعادن الأساسية لتلبية الاحتياجات الغذائية اليومية للحيوانات والدواجن. يساعد على دعم المناعة وتحسين النمو والأداء والإنتاجية، ومصمم للاستخدام مع الدواجن والجمال والمواشي.",
+                image: "yyyy.jpg"
+            },
+            {
+                name: "ليفافلوك (LEVAFLUKE) – معلق فموي بيطري",
+                category: "مضادات الديدان والطفيليات",
+                description: "معلق فموي بيطري واسع المدى يحتوي على ليفاميزول هيدروكلوريد وأوكسيكلوزانيد، ومصمم لعلاج ومكافحة مجموعة من الديدان والطفيليات في الأبقار والأغنام. يساعد في السيطرة على الديدان المعوية والديدان الرئوية وديدان الكبد (الفاشيولا)، مما يوفر تغطية متكاملة لمكافحة الطفيليات الداخلية.",
+                image: "yyy.jpg"
+            },
+            {
+                name: "كوباكتان إل سي (Cobactan LC)",
+                category: "مضادات حيوية وعلاجات التهاب الضرع",
+                description: "مضاد حيوي بيطري على هيئة مرهم للإعطاء داخل الضرع، يحتوي على سيفكوينوم بتركيز 75 مجم لكل سرنجة. يُستخدم لعلاج التهاب الضرع السريري في الأبقار الحلابة الناتج عن البكتيريا الحساسة للسيفكوينوم، ويساعد على مكافحة أهم مسببات التهاب الضرع.",
+                image: "h.jpg"
+            },
+            {
+                name: "تيركسين إل سي (TERREXINE LC)",
+                category: "مضادات حيوية وعلاجات التهاب الضرع",
+                description: "مضاد حيوي بيطري على هيئة معلق للإعطاء داخل الضرع، يحتوي على سيفاليكسين وكاناميسين. مخصص لعلاج التهاب الضرع السريري في الأبقار الحلابة، وفعال ضد مجموعة من البكتيريا المسببة للالتهاب مثل المكورات العنقودية، والمكورات العقدية، وبكتيريا E. coli.",
+                image: "hh.jpg"
+            },
+            {
+                name: "سينولون (Synulon) – Lactating Cow Formulation",
+                category: "مضادات حيوية وعلاجات التهاب الضرع",
+                description: "مضاد حيوي بيطري مخصص للأبقار الحلابة، يُستخدم لعلاج التهاب الضرع (Mastitis) عن طريق التسريب داخل الضرع باستخدام السرنجات المخصصة.",
+                image: "hhh.jpg"
+            },
+            {
+                name: "سترات البيبرازين 20 جم (Piperazine Citrate)",
+                category: "مضادات الديدان والطفيليات",
+                description: "مضاد ديدان بيطري على هيئة مسحوق يحتوي على سترات البيبرازين، يُستخدم لمكافحة الديدان المعوية والديدان الأسطوانية الحساسة للبيبرازين في الحيوانات والطيور. مناسب للاستخدام البيطري مع أنواع مختلفة من الحيوانات والدواجن، ويأتي في عبوة وزن 20 جم.",
+                image: "hhhh.jpg"
+            },
+            {
+                name: "جاما-بين 15 إل إيه (Gama-Penn®️ 15 LA)",
+                category: "مضادات حيوية بيطرية طويلة المفعول",
+                description: "مضاد حيوي بيطري طويل المفعول مخصص للأبقار والأغنام. صُمم للمساعدة في مكافحة العدوى البكتيرية، وتتميز تركيبة LA بامتداد فترة المفعول مما يقلل الحاجة إلى تكرار الحقن ويساعد على استمرار التأثير العلاجي لفترة أطول.",
+                image: "hhhhh.jpg"
+            },
+            {
+                name: "لاكساب (Laxa-Up)",
+                category: "ملينات ومساعدات هضمية",
+                description: "مستحضر بيطري يُستخدم لدعم الجهاز الهضمي في الحيوانات، خاصة المجترات. يساعد على تحسين حركة وعمل الكرش، والتخفيف من حالات الإمساك وخمول الكرش، كما يساهم في دعم الجسم والتخلص من السموم الضارة.",
+                image: "l.jpg"
+            },
+  // ... منتجات أخرى
+  {
+    name: "جل بيطري للعضلات",
+    category: "جل موضعي",
+    description: "تخفيف آلام العضلات والمفاصل: يُستخدم لتدليك وتخفيف التيبس والإجهاد العضلي لدى الخيول والحيوانات بعد التدريب أو المجهود البدني الشاق.",
+    image: "qq.jpg" // قم بتغيير اسم الصورة إلى الصورة الجديدة للمنتج
+  },
+  // ... منتجات أخرى
+
+            {
+                name: "فلونيدين (Flunidyne 50 ml)",
+                category: "مضادات الالتهاب والمسكنات",
+                description: "محلول حقن مخصص للاستعمال البيطري. يحتوي على Flunixin Meglumine، ويُستخدم كمضاد للالتهاب ومسكن للآلام وخافض للحرارة. مناسب للاستخدام البيطري في حالات الالتهاب والألم والحمى لدى الحيوانات. العبوة: 50 مل.",
+                image: "lll.jpg"
+            },
+            {
+                name: "فلوريكول (FLORICOL 100ml)",
+                category: "مضادات حيوية",
+                description: "مضاد حيوي واسع المجال يحتوي على Florfenicol، في صورة محلول فموي (Oral Solution) سريع الامتصاص، ويُستخدم لمكافحة العدوى البكتيرية في الدواجن.",
+                image: "llll.jpg"
+            },
+            {
+                name: "Flunixin Injection | فلونيكسين",
+                category: "مضادات الالتهاب والمسكنات",
+                description: "محلول حقن بيطري يحتوي على Flunixin، وهو مضاد التهاب غير ستيرويدي (NSAID) ذو تأثير مسكن وخافض للحرارة. يُستخدم للسيطرة على الألم والالتهاب والحمى في الحيوانات، بما في ذلك الخيول والأبقار.",
+                image: "lllll.jpg"
+            },
+            {
+                name: "AHC-MINERAL MEEX | السر لصحة وحيوية طيورك!",
+                category: "أملاح معدنية ومكملات غذائية",
+                description: "خلطة أملاح معدنية متكاملة مخصصة للدواجن والحمام، تساعد على دعم النمو وصحة العظام وقوة قشرة البيض، وتساهم في التغذية المتوازنة ودعم المناعة والحيوية وصحة الريش. الوزن: 1 كجم.",
+                image: "llllll.jpg"
+            },
+            
+  {
+    name: "ألكس كافو | Alex Cafo Injection",
+    category: "محلول للحقن | فيتامينات ومعادن",
+    description: "محلول للحقن بيطري فقط، بسعة 100 مل. يستخدم لعلاج نقص الكالسيوم وتعزيز الصحة العامة والتمثيل الغذائي لمجموعة واسعة من الحيوانات الكبيرة والصغيرة مثل الأبقار، الخيول، الأغنام، والماعز.",
+    image: "w.jpg"
+  },
+  {
+    name: "فوسفوفونك | Phospho-Vonk",
+    category: "محلول للحقن | مقوي عام",
+    description: "عبوة تحتوي على 50 مل من محلول الحقن (عضل أو تحت الجلد) بيطري فقط، غني بالفوسفور. يستخدم لعلاج أو الوقاية من نقص الفوسفور، وكمنشط عام لتحسين الطاقة وحالات نقص الشهية أو الإجهاد.",
+    image: "ww.jpg"
+  },
+  {
+    name: "نيوترا بيزك| Nutra Base",
+    category: "مكمل غذائي | إدرار وخصوبة",
+    description: "مكمل غذائي بتركيبة من فوسفات ثنائي القاعدة ومستخلصات عشبية في علبة كرتونية. مصمم خصيصًا للأبقار الحلوب، الأغنام، والماعز لزيادة إدرار اللبن، رفع الخصوبة، وعلاج نقص الفوسفور.",
+    image: "x.jpg"
+  },
+  {
+    name: "ساكرولايت | Sacrolyte",
+    category: "بودرة | إلكتروليتات",
+    description: "بودرة إلكتروليتات في كيس ألومنيوم سعة 100 جم. مخصصة للدواجن والعجول لتعويض السوائل والأملاح المفقودة في حالات الجفاف، الإسهال، أو الإجهاد الحراري، وتساعد على استعادة التوازن.",
+    image: "xx.jpg"
+  },
+  {
+    name: "سوبرماش | Supermach Digestant & Appetizer",
+    category: "بودرة | هاضم وفاتح للشهية",
+    description: "بودرة في كيس أصفر 100 جم، تعمل كهاضم وفاتح للشهية. تحتوي على فيتامينات ومعادن ومستخلصات عشبية. منشط عام لزيادة الوزن واللحم واللبن، وعلاج عسر الهضم للحيوانات الكبيرة والصغيرة والدواجن.",
+    image: "xxx.jpg"
+  },
+  {
+    name: "بى ديجيست بانش | B. Digest Panch",
+    category: "سائل | بروبيوتيك",
+    description: "عبوة سائلة بيطري فقط، سعة 100 مل، تحتوي على بروبيوتيك. تعمل كفاتح للشهية، منشط للجهاز الهضمي، وتزيد من معدلات التحويل الغذائي عن طريق تحسين وزيادة البكتيريا النافعة في الجهاز الهضمي.",
+    image: "wwwwww.jpg"
+  },
+
+
+  {
+    name: "AHC YEAST | خميرة",
+    category: "مضافات علفية",
+    description: "منتج عالي الفاعلية يحتوي على الخميرة لتحسين عملية الهضم وزيادة معدلات تحويل العلف للحيوانات والطيور، 1 كجم",
+    image: "n.jpg"
+  },
+  {
+    name: "NutRaa Mineral | نيوترا منيرال",
+    category: "أملاح معدنية",
+    description: "مخلوط أملاح معدنية لعجول التسمين",
+    image: "nn.jpg"
+  },
+  {
+    name: "AHC ANTITOXIN | مضاد سموم",
+    category: "مضافات علفية",
+    description: "مضاد سموم عالي الفاعلية لتحسين عملية الهضم وزيادة معدلات تحويل العلف، 1 كجم",
+    image: "nnn.jpg"
+  },
+ 
+  
+  {
+    name: "Combikel 20+20",
+    category: "محلول حقن بيطري",
+    description: "محلول حقن معقم بيطري للاستخدام العام.",
+    image: "c.jpg"
+  },
+  {
+    name: "Sulfadimidine Sodium 33.3%",
+    category: "مضاد بكتيري",
+    description: "محلول عقيم للحقن لعلاج الإصابات البكتيرية والكوكسيديا في الماشية والطيور (100 مل).",
+    image: "cc.jpg"
+  },
+  {
+    name: "Tulathroject",
+    category: "محلول حقن",
+    description: "تولاثرومايسين 100 ملغم/مل مع مونوتيوجليسرول 5 ملغم/مل للاستخدام البيطري (100 مل).",
+    image: "ccc.jpg"
+  },
+  {
+    name: "Mega Mast",
+    category: "مرهم",
+    description: "مرهم للأضلاع لعلاج التهاب الضرع، التورمات، والتهابات المفاصل والعضلات.",
+    image: "cccc.jpg"
+  },
+  {
+    name: "Mega Cure",
+    category: "مرهم",
+    description: "مرهم بيطري من MSD لعلاج الالتهابات الجلدية والجروح والحالات الموضعية.",
+    image: "ccccc.jpg"
+  },
+  {
+    name: "Mange cide",
+    category: "منتج بيطري",
+    description: "منتج بيطري من شركة ميجا فارما للرعاية الصحية والعلاجية.",
+    image: "cccccc.jpg"
+  },
+  {
+    name: "Noviro",
+    category: "مضاد فيروسات",
+    description: "محلول بيطري مضاد قوي للفيروسات لتعزيز مناعة الحيوانات والطيور.",
+    image: "ccccccc.jpg"
+  },
+  {
+    name: "ClostFree",
+    category: "مضاد معوي",
+    description: "مضاد كلوستريديا ومطهر معوي للطيور والدواجن والحيوانات الصغيرة (50 مل).",
+    image: "cccccccc.jpg"
+  },
+  {
+    name: "Balmoney",
+    category: "منتج بيطري",
+    description: "منتج بيطري من شركة دواء لتحسين الأداء الحيوي والوقاية والعلاج.",
+    image: "ccccccccc.jpg"
+  },
+
+{
+  name: "Oxytetracycline HCL",
+  category: "مضادات حيوية",
+  description: "مضاد حيوي واسع المدى يضاف لماء الشرب لعلاج ومكافحة العدوى البكتيرية والجرثومية في الدواجن.",
+  image: "c.jpg"
+},
+{
+  name: "AD3E",
+  category: "فيتامينات",
+  description: "فيتامينات (أ، د3، هـ) لتعزيز النمو وزيادة الخصوبة وتحسين الحيوية والمناعة للطيور والحيوانات.",
+  image: "b.jpg"
+},
+{
+  name: "Salts Mixed Mineral",
+  category: "أملاح معدنية",
+  description: "أملاح معدنية مذابة لماء الشرب لتحسين صلابة العظام، تعويض النقص المعدني، وتقليل مشاكل نقص الكالسيوم وزيادة إنتاج البيض.",
+  image: "bb.jpg"
+},
+{
+  name: "MegaVit",
+  category: "مكملات فيتامينية",
+  description: "مكمل ومحفز فيتاميني (مركب) لدعم النمو والمناعة لدى الأغنام والدواجن.",
+  image: "bbb.jpg"
+},
+{
+  name: "DE-CAL-PHOS",
+  category: "مكملات معدنية",
+  description: "بودرة لمعالجة الكساح ولين العظام، لضمان صلابة قشرة البيض، وتجنب الهشاشة وضبط نقص عنصر الفوسفور.",
+  image: "bbbb.jpg"
+},
+{
+  name: "RaK 5%",
+  category: "فيتامينات",
+  description: "مسحوق لتعويض نقص فيتامين ك في الدواجن للوقاية من النزيف وتحسين معاملات التخثر.",
+  image: "bbbbb.jpg"
+},
+
+{
+  name: "BUNSH",
+  category: "مكملات معدنية",
+  description: "مسحوق غني بالفوسفور ومحسن للهضم، لتعويض نقص الأملاح المعدنية وفيتامينات عالية التركيز.",
+  image: "bbbbbb.jpg"
+},
+
+  {
+    "name": "Excede",
+    "category": "مضاد حيوي بيطري",
+    "description": "مضاد حيوي (100 مل) لعلاج أمراض التنفس، تعفن القدم، والتهاب الرحم في الماشية.",
+    "image": "v.jpg"
+  },
+  {
+    "name": "Kemeta Formaline",
+    "category": "مطهرات",
+    "description": "محلول فورمالين (4 لتر) مطهر قوي لمزارع الدواجن والحيوانات لمكافحة الجراثيم.",
+    "image": "vv.jpg"
+  },
+
+
+
+];
+ 
+
+
+
+        
+        /* =====================================================
+           ELEMENTS
+        ===================================================== */
+        const container = document.getElementById("productsContainer");
+        const noResults = document.getElementById("noResults");
+        const searchInput = document.getElementById("searchInput");
+        /* =====================================================
+           DISPLAY PRODUCTS
+        ===================================================== */
+        function displayProducts(list) {
+            container.innerHTML = "";
+            if (list.length === 0) {
+                noResults.style.display = "block";
+                container.appendChild(noResults);
+                return;
+            }
+            noResults.style.display = "none";
+            list.forEach((product, index) => {
+                const card = document.createElement("div");
+                card.className = "product-card";
+                card.innerHTML = `
+                    <div class="product-image">
+                        <img
+                            src="${product.image}"
+                            alt="${product.name}"
+                        >
+                    </div>
+                    <div class="product-info">
+                        <div class="product-number">
+                            PRODUCT ${String(index + 1).padStart(2, "0")}
+                        </div>
+                        <h3 class="product-name">
+                            ${product.name}
+                        </h3>
+                        <span class="product-category">
+                            ${product.category}
+                        </span>
+                        <p class="product-description">
+                            ${product.description}
+                        </p>
+                        <div class="product-actions">
+                           <a
+    href="https://wa.me/201090970082?text=${encodeURIComponent(
+        "مرحباً، أريد طلب: " + product.name +
+        "\nصورة المنتج: " + new URL(product.image, window.location.href).href
+    )}"
+    target="_blank"
+    class="whatsapp-btn"
+>
+    Order on WhatsApp
+</a>
+                            <button
+                                type="button"
+                                class="wishlist-btn"
+                            >
+                                إضافة للمفضلة
+                            </button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+               
+                const wishlistBtn = card.querySelector(".wishlist-btn");
+
+wishlistBtn.onclick = function () {
+
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    cartItems.push({
+        name: product.name,
+        category: product.category,
+        description: product.description,
+        image: product.image
+    });
+
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+    alert("تمت إضافة المنتج إلى المفضلة ❤️");
+};
+                });
+            
+        }
+        /* =====================================================
+           SEARCH
+        ===================================================== */
+        searchInput.addEventListener("input", function () {
+            const value = this.value
+                .toLowerCase()
+                .trim();
+            const filtered = products.filter(product =>
+                product.name
+                    .toLowerCase()
+                    .includes(value)
+                ||
+                product.category
+                    .toLowerCase()
+                    .includes(value)
+                ||
+                product.description
+                    .toLowerCase()
+                    .includes(value)
+            );
+            displayProducts(filtered);
+        });
+        /* =====================================================
+           CATEGORY FILTER
+        ===================================================== */
+        function filterCategory(category, button) {
+            document
+                .querySelectorAll(".category-btn")
+                .forEach(btn => {
+                    btn.classList.remove("active");
+                });
+            button.classList.add("active");
+            if (category === "all") {
+                displayProducts(products);
+                return;
+            }
+            const filtered = products.filter(product =>
+                product.category === category
+            );
+            displayProducts(filtered);
+        }
+        /* ================= WISHLIST ================= */
+
+function addToCart(product) {
+
+    let cartItems =
+        JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    const exists = cartItems.some(
+        item => item.name === product.name
+    );
+
+    if (exists) {
+        alert("المنتج موجود بالفعل في السلة");
+        return;
+    }
+
+    cartItems.push({
+        name: product.name,
+        category: product.category,
+        description: product.description,
+        image: product.image
+    });
+
+    localStorage.setItem(
+        "cartItems",
+        JSON.stringify(cartItems)
+    );
+
+    alert("تمت إضافة المنتج إلى السلة");
+}
+      /* =====================================================
+           START
+        ===================================================== */
+        displayProducts(products);
+    </script>
+</body>
+</html>

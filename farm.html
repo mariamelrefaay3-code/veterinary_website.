@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Farm Supplies | المركز الطبي للخدمات البيطرية</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f8f7;
+            color: #173b35;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: linear-gradient(135deg, #0d5c50, #16806e);
+            color: white;
+
+            padding: 25px 7%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+        }
+
+        .logo h1 {
+            font-size: 25px;
+            margin-bottom: 5px;
+        }
+
+        .logo p {
+            font-size: 13px;
+            opacity: 0.85;
+        }
+
+        .home-btn {
+            text-decoration: none;
+
+            color: #0d5c50;
+            background: white;
+
+            padding: 12px 22px;
+
+            border-radius: 30px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+
+            white-space: nowrap;
+        }
+
+        .home-btn:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 8px 18px rgba(0,0,0,0.18);
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            text-align: center;
+
+            padding: 55px 20px 35px;
+        }
+
+        .small-title {
+            color: #16806e;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            font-size: 38px;
+
+            margin-bottom: 12px;
+
+            color: #173b35;
+        }
+
+        .hero p {
+            color: #71817d;
+
+            max-width: 680px;
+
+            margin: auto;
+
+            line-height: 1.8;
+        }
+
+
+        /* ================= SEARCH ================= */
+
+        .tools {
+            width: 86%;
+
+            max-width: 1100px;
+
+            margin: 0 auto 35px;
+
+            display: flex;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+        }
+
+        .search-box {
+            position: relative;
+
+            flex: 1;
+
+            min-width: 250px;
+        }
+
+        .search-box input {
+            width: 100%;
+
+            padding: 16px 50px 16px 20px;
+
+            border: 1px solid #dce7e4;
+
+            border-radius: 35px;
+
+            outline: none;
+
+            background: white;
+
+            font-size: 15px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.05);
+
+            transition: 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: #16806e;
+
+            box-shadow:
+                0 8px 25px rgba(22,128,110,0.12);
+        }
+
+        /* عدسة بحث بدون إيموجي */
+
+        .search-icon {
+            position: absolute;
+
+            right: 20px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 18px;
+
+            height: 18px;
+
+            border: 2px solid #16806e;
+
+            border-radius: 50%;
+        }
+
+        .search-icon::after {
+            content: "";
+
+            position: absolute;
+
+            width: 7px;
+
+            height: 2px;
+
+            background: #16806e;
+
+            right: -5px;
+
+            bottom: -3px;
+
+            transform: rotate(45deg);
+
+            border-radius: 2px;
+        }
+
+
+        /* ================= CATEGORIES ================= */
+
+        .categories {
+            display: flex;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+        }
+
+        .category-btn {
+            border: none;
+
+            background: white;
+
+            color: #176457;
+
+            padding: 12px 20px;
+
+            border-radius: 25px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: #16806e;
+
+            color: white;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* ================= FARM PRODUCTS ================= */
+
+        .products-container {
+            width: 86%;
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+
+            padding-bottom: 75px;
+        }
+
+
+        /* ================= CARD ================= */
+
+        .product-card {
+            background: white;
+
+            border-radius: 22px;
+
+            overflow: hidden;
+
+            border: 1px solid #e5eeeb;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.06);
+
+            transition: 0.35s;
+
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 18px 38px rgba(0,0,0,0.12);
+        }
+
+
+        /* ================= IMAGE ================= */
+
+        .product-image {
+            height: 220px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e8f5f1,
+                    #d7eee8
+                );
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: contain;
+
+            padding: 0;
+
+            transition: 0.4s;
+        }
+
+        .product-card:hover
+        .product-image img {
+            transform: scale(1.07);
+        }
+
+
+        /* ================= INFO ================= */
+
+        .product-info {
+            padding: 22px;
+        }
+
+        .product-number {
+            color: #16806e;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+
+            letter-spacing: 0.5px;
+        }
+
+        .product-name {
+            font-size: 21px;
+
+            margin-bottom: 10px;
+
+            color: #173b35;
+
+            line-height: 1.4;
+        }
+
+        .product-category {
+            display: inline-block;
+
+            background: #edf8f5;
+
+            color: #16806e;
+
+            padding: 6px 11px;
+
+            border-radius: 15px;
+
+            font-size: 11px;
+
+            margin-bottom: 12px;
+        }
+
+        .product-description {
+            color: #778783;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            min-height: 48px;
+
+            margin-bottom: 18px;
+        }
+
+
+        /* ================= BUTTON ================= */
+
+        .order-btn {
+            display: block;
+
+            width: 100%;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            background: #16806e;
+
+            color: white;
+
+            padding: 13px;
+
+            border-radius: 12px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .order-btn:hover {
+            background: #0d5c50;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* ================= NO RESULTS ================= */
+
+        .no-results {
+            grid-column: 1 / -1;
+
+            text-align: center;
+
+            padding: 60px;
+
+            color: #7b8986;
+
+            display: none;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #103f37;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 30px 20px;
+        }
+
+        footer h3 {
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            font-size: 13px;
+
+            opacity: 0.8;
+
+            margin-top: 5px;
+        }
+
+
+        /* ================= TABLET ================= */
+
+        @media (max-width: 900px) {
+
+            .products-container {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 600px) {
+
+            header {
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+            .logo h1 {
+                font-size: 21px;
+            }
+
+            .hero {
+                padding-top: 40px;
+            }
+
+            .hero h2 {
+                font-size: 29px;
+            }
+
+            .products-container {
+                grid-template-columns: 1fr;
+
+                width: 90%;
+            }
+
+            .tools {
+                width: 90%;
+            }
+
+            .product-image {
+                height: 230px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="logo">
+
+            <h1>
+                المركز الطبي للخدمات البيطرية
+            </h1>
+
+            <p>
+                Veterinary Medical Center
+            </p>
+
+        </div>
+
+
+        <a href="index.html" class="home-btn">
+            الصفحة الرئيسية
+        </a>
+
+    </header>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="small-title">
+            FARM SUPPLIES
+        </div>
+
+        <h2>
+            مستلزمات المزرعة
+        </h2>
+
+        <p>
+            اكتشفي مجموعة من مستلزمات المزرعة
+            والأدوات والمنتجات اللازمة للعناية
+            بالحيوانات والحفاظ على بيئة المزرعة.
+        </p>
+
+    </section>
+
+
+
+    <!-- ================= SEARCH ================= -->
+
+    <div class="tools">
+
+        <div class="search-box">
+
+            <span class="search-icon"></span>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="ابحثي عن مستلزم..."
+            >
+
+        </div>
+
+
+        <div class="categories">
+
+            <button
+                class="category-btn active"
+                onclick="filterCategory('all', this)"
+            >
+                الكل
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= PRODUCTS ================= -->
+
+    <main>
+
+        <div
+            class="products-container"
+            id="productsContainer"
+        >
+
+            <div
+                class="no-results"
+                id="noResults"
+            >
+                لم يتم العثور على المستلزم.
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <h3>
+            المركز الطبي للخدمات البيطرية
+        </h3>
+
+       
+
+        <p>
+            Veterinary Medical Center © 2026
+        </p>
+
+    </footer>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+
+        /* =================================================
+           FARM SUPPLIES
+           ================================================= */
+
+        const products = [
+
+           {
+        name: "  ترمومتر لقياس الحراره والرطوبه   ",
+        category: "معدات",
+        description: "جهاز قياس الحرارة والرطوبة التناظري، الحل الأمثل لمراقبة بيئة المزارع والعنابر وحماية صحة الطيور والأدوية واللقاحات بدقة.",
+        image: "a.jpg"
+    },
+
+
+            {
+        name: "  ترمومتر لقياس الحراره والرطوبه جوي  ",
+        category: "معدات",
+        description: "ترمومتر جداري كلاسيكي وعملي، يوفر قراءات دقيقة ومباشرة لدرجة الحرارة بالدرجة المئوية والفهرنهايت دون الحاجة لبطاريات، مثالي للاستخدام في المزارع والمنازل.",
+        image: "aa.jpg"
+    },
+
+
+{
+        name: "سقايه دواجن ",
+        category: "معدات",
+        description: "سقاية دواجن بلاستيكية عملية لتوفير مياه نظيفة ومستمرة للكتاكيت والطيور بنظام تدفق تلقائي، مصممة لمنع التلوث والحفاظ على جفاف الفرشة داخل المزارع.",
+        image: "aaa.jpg"
+    },
+
+{
+        name: "    علاقه دواجن    ",
+        category: "معدات",
+        description: "علافة دواجن بلاستيكية عملية ومقسّمة لتنظيم تغذية الكتاكيت والطيور، مصممة لمنع إهدار العلف والحفاظ على نظافته داخل المزارع والعنابر.",
+        image: "aaaa.jpg"
+    },
+
+
+           {
+        name: "   علافه دواجن حديثه    ",
+        category: "معدات",
+        description: "علافة دواجن بلاستيكية متطورة بنظام مانع للهدر، توفر تغذية تلقائية مستمرة ومنظمة للطيور، تتميز بمتانتها وسهولة فكها وتنظيفها للحفاظ على بيئة صحية.",
+        image: "aaaaa.jpg"
+    },
+
+
+
+            {
+        name: "قاعده رفع السقايات والعلافات ",
+        category: "معدات",
+        description: "قاعدة تثبيت بلاستيكية متينة لرفع أواني العلف والمياه، مصممة للحفاظ على نظافة الغذاء، منع التلوث، وتوفير ثبات ممتاز للمعدات داخل المزارع.",
+        image: "aaaaaa.jpg"
+    },
+
+
+        ];
+
+
+
+        /* =================================================
+           DISPLAY PRODUCTS
+           ================================================= */
+
+        const container =
+            document.getElementById(
+                "productsContainer"
+            );
+
+        const noResults =
+            document.getElementById(
+                "noResults"
+            );
+
+
+        function displayProducts(list) {
+
+            container.innerHTML = "";
+
+
+            if (list.length === 0) {
+
+                noResults.style.display = "block";
+
+                container.appendChild(noResults);
+
+                return;
+            }
+
+
+            noResults.style.display = "none";
+
+
+            list.forEach((product, index) => {
+
+                const card =
+                    document.createElement("div");
+
+                card.className =
+                    "product-card";
+
+
+                card.innerHTML = `
+
+                    <div class="product-image">
+
+                        <img
+                            src="${product.image}"
+                            alt="${product.name}"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <div class="product-number">
+
+                            FARM ${String(index + 1).padStart(2, "0")}
+
+                        </div>
+
+
+                        <h3 class="product-name">
+
+                            ${product.name}
+
+                        </h3>
+
+
+                        <span class="product-category">
+
+                            ${product.category}
+
+                        </span>
+
+
+                        <p class="product-description">
+
+                            ${product.description}
+
+                        </p>
+
+
+                        <a href="https://wa.me/201090970082?text=${encodeURIComponent('السلام عليكم، أريد طلب المنتج التالي:\nالاسم: ' + product.name + '\nرابط الصورة: ' + window.location.origin + '/' + product.image)}" target="_blank" class="order-btn">
+    Order on WhatsApp
+</a>
+
+<button
+    type="button"
+    class="wishlist-btn"
+    style="
+        width:100%;
+        margin-top:8px;
+        padding:13px;
+        border:none;
+        border-radius:12px;
+        background:#edf8f5;
+        color:#16806e;
+        font-weight:bold;
+        cursor:pointer;
+    "
+>
+    إضافة للمفضلة
+</button>
+
+                    </div>
+
+                `;
+
+const wishlistBtn = card.querySelector(".wishlist-btn");
+
+wishlistBtn.onclick = function () {
+
+    let cartItems =
+        JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    const exists = cartItems.some(
+        item => item.name === product.name
+    );
+
+    if (exists) {
+        alert("المنتج موجود بالفعل في المفضلة");
+        return;
+    }
+
+    cartItems.push({
+        name: product.name,
+        category: product.category,
+        description: product.description,
+        image: product.image
+    });
+
+    localStorage.setItem(
+        "cartItems",
+        JSON.stringify(cartItems)
+    );
+
+    alert("تمت إضافة المنتج إلى المفضلة");
+};
+                container.appendChild(card);
+
+            });
+
+        }
+
+
+
+        /* =================================================
+           SEARCH
+           ================================================= */
+
+        const searchInput =
+            document.getElementById(
+                "searchInput"
+            );
+
+
+        searchInput.addEventListener(
+            "input",
+            function () {
+
+                const searchValue =
+                    this.value
+                        .toLowerCase()
+                        .trim();
+
+
+                const filteredProducts =
+                    products.filter(product =>
+
+                        product.name
+                            .toLowerCase()
+                            .includes(searchValue)
+
+                        ||
+
+                        product.category
+                            .toLowerCase()
+                            .includes(searchValue)
+
+                        ||
+
+                        product.description
+                            .toLowerCase()
+                            .includes(searchValue)
+
+                    );
+
+
+                displayProducts(
+                    filteredProducts
+                );
+
+            }
+        );
+
+
+
+        /* =================================================
+           CATEGORY FILTER
+           ================================================= */
+
+        function filterCategory(
+            category,
+            button
+        ) {
+
+            document
+                .querySelectorAll(
+                    ".category-btn"
+                )
+                .forEach(btn => {
+
+                    btn.classList.remove(
+                        "active"
+                    );
+
+                });
+
+
+            button.classList.add(
+                "active"
+            );
+
+
+            if (category === "all") {
+
+                displayProducts(
+                    products
+                );
+
+                return;
+            }
+
+
+            const filteredProducts =
+                products.filter(product =>
+
+                    product.category ===
+                    category
+
+                );
+
+
+            displayProducts(
+                filteredProducts
+            );
+
+        }
+
+
+
+        /* =================================================
+           START
+           ================================================= */
+
+        displayProducts(products);
+
+    </script>
+
+
+</body>
+
+</html>

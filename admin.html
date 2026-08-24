@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم الشاملة - المركز الطبي للخدمات البيطرية</title>
+    <style>
+        body {
+            background-color: #fbf5e6;
+            font-family: 'Cairo', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .dashboard-container {
+            max-width: 1000px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: none;
+        }
+        .header-admin {
+            background: linear-gradient(135deg, #283618, #386641);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            margin: -30px -30px 20px -30px;
+        }
+        input, button, select {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            font-size: 1rem;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        .btn-primary {
+            background-color: #bc6c25;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn-primary:hover { background-color: #9b531a; }
+        
+        .section-box {
+            background: #fdfbf7;
+            border: 1px solid #e6dcc5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .section-box h3 {
+            margin-top: 0;
+            color: #283618;
+            border-bottom: 2px solid #dda15e;
+            padding-bottom: 8px;
+        }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 10px; border-bottom: 1px solid #ddd; text-align: center; }
+        th { background-color: #f4f1de; color: #283618; }
+        .input-field { width: 100px; text-align: center; padding: 5px; }
+        .save-btn {
+            background-color: #386641;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .nav-links { margin-top: 20px; text-align: left; }
+        .nav-links a { color: #bc6c25; text-decoration: none; font-weight: bold; margin-left: 15px; }
+    </style>
+</head>
+<body>
+
+    <!-- نافذة تسجيل الدخول للإدارة -->
+    <div id="login-box" class="login-container">
+        <h2>🔐 دخول الإدارة العليا</h2>
+        <p style="color: #666; font-size: 0.9rem;">أدخل كلمة المرور الخاصة بصاحب المركز للتحكم في أقسام الموقع</p>
+        <input type="password" id="admin-password" placeholder="كلمة المرور">
+        <button class="btn-primary" onclick="verifyLogin()">دخول لوحة التحكم</button>
+        <p id="login-error" style="color: red; font-size: 0.85rem; display: none;">كلمة المرور غير صحيحة!</p>
+        <a href="index.html" style="display: block; margin-top: 15px; color: #bc6c25; text-decoration: none;">← العودة للموقع الرئيسي</a>
+    </div>
+
+    <!-- لوحة التحكم المركزية لكل الأقسام -->
+    <div id="dashboard-box" class="dashboard-container">
+        <div class="header-admin">
+            <h2>لوحة التحكم المركزية للموقع</h2>
+            <p>إدارة أسعار وتوفير المنتجات لجميع أقسام المركز من مكان واحد</p>
+        </div>
+
+        <!-- 1. قسم الدواجن والبط -->
+        <div class="section-box">
+            <h3>🐥 قسم الدواجن والحجز الأسبوعي</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>نوع الطائر</th>
+                        <th>السعر (جنيه)</th>
+                        <th>الحفظ</th>
+                    </tr>
+                </thead>
+                <tbody id="poultry-table-body"></tbody>
+            </table>
+        </div>
+
+        <!-- 2. قسم الأدوية والمستلزمات -->
+        <div class="section-box">
+            <h3>💊 قسم الأدوية والمستلزمات البيطرية</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>المنتج</th>
+                        <th>السعر (جنيه)</th>
+                        <th>الحفظ</th>
+                    </tr>
+                </thead>
+                <tbody id="medicines-table-body"></tbody>
+            </table>
+        </div>
+
+        <!-- 3. قسم الأعلاف والأغذية -->
+        <div class="section-box">
+            <h3>🌾 قسم الأعلاف والأغذية</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>نوع العلف / الغذاء</th>
+                        <th>السعر (جنيه)</th>
+                        <th>الحفظ</th>
+                    </tr>
+                </thead>
+                <tbody id="food-table-body"></tbody>
+            </table>
+        </div>
+
+        <!-- 4. قسم المبيدات الحشرية -->
+        <div class="section-box">
+            <h3>🧪 قسم المبيدات الحشرية</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>المبيد / المطهر</th>
+                        <th>السعر (جنيه)</th>
+                        <th>الحفظ</th>
+                    </tr>
+                </thead>
+                <tbody id="pesticides-table-body"></tbody>
+            </table>
+        </div>
+
+        <!-- 5. قسم مستلزمات المزارع -->
+        <div class="section-box">
+            <h3>🛠️ قسم مستلزمات المزارع والأدوات</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>المعدة / الأداة</th>
+                        <th>السعر (جنيه)</th>
+                        <th>الحفظ</th>
+                    </tr>
+                </thead>
+                <tbody id="farm-table-body"></tbody>
+            </table>
+        </div>
+
+        <div class="nav-links">
+            <button class="btn-primary" style="width: auto; padding: 8px 20px; background-color: #900;" onclick="adminLogout()">تسجيل الخروج 🔒</button>
+            <a href="index.html">الذهاب للرئيسية 🏠</a>
+        </div>
+    </div>
+
+    <script>
+        // كلمة المرور الخاصة بالراجل (يمكنك تغييرها كما تفضلين)
+        const ADMIN_PIN = "Ikm2552005";
+
+        // بيانات الأقسام المختلفة وأسعارها الافتراضية
+        const siteData = {
+            poultry: {
+                1: "كتكوت أبيض", 2: "كتكوت ساسو", 3: "كتكوت بلدي", 4: "كتكوت فيومي", 5: "كتكوت جميزة",
+                6: "بط مسكوفي", 7: "بط مولار", 8: "بط مولد", 9: "بط بيور", 10: "رومي بلدي"
+            },
+            medicines: {
+                m1: "مضاد حيوي واسع المدى", m2: "فيتامينات وا أملاح معدنية", m3: "محلول جفاف بيطري", m4: "مضاد سموم أفاعي/علف"
+            },
+            food: {
+                f1: "علف بادي تسمين 23%", f2: "علف نامي 21%", f3: "علف ناهي 19%", f4: "ذرة صفراء مجروش"
+            },
+            pesticides: {
+                p1: "مطهر عام لحظائر الحيوانات", p2: "مبيد حشري للقضاء على الحشرات الطائرة", p3: "بودرة تعفير ضد الطفيليات الخارجية"
+            },
+            farm: {
+                fa1: "سقايات أوتوماتيك للدواجن", fa2: "علافات بلاستيك للمزارع", fa3: "لمبات تدفئة حرارية", fa4: "موازين ديجيتال حساسة"
+            }
+        };
+
+        const defaultPrices = {
+            poultry: {1: 30, 2: 25, 3: 22, 4: 23, 5: 26, 6: 45, 7: 40, 8: 42, 9: 38, 10: 65},
+            medicines: {m1: 120, m2: 85, m3: 45, m4: 150},
+            food: {f1: 450, f2: 440, f3: 430, f4: 300},
+            pesticides: {p1: 95, p2: 110, p3: 75},
+            farm: {fa1: 60, fa2: 80, fa3: 50, fa4: 350}
+        };
+
+        window.onload = function() {
+            if (localStorage.getItem('isMasterAdminLoggedIn') === 'true') {
+                openDashboard();
+            }
+        };
+
+        function verifyLogin() {
+            const pass = document.getElementById('admin-password').value;
+            if (pass === ADMIN_PIN) {
+                localStorage.setItem('isMasterAdminLoggedIn', 'true');
+                openDashboard();
+            } else {
+                document.getElementById('login-error').style.display = 'block';
+            }
+        }
+
+        function openDashboard() {
+            document.getElementById('login-box').style.display = 'none';
+            document.getElementById('dashboard-box').style.display = 'block';
+            loadAllTables();
+        }
+
+        function adminLogout() {
+            localStorage.removeItem('isMasterAdminLoggedIn');
+            location.reload();
+        }
+
+        function loadAllTables() {
+            let savedPrices = JSON.parse(localStorage.getItem('allSitePrices')) || defaultPrices;
+
+            // تعبئة جدول الدواجن
+            fillTable('poultry-table-body', siteData.poultry, savedPrices.poultry, 'poultry');
+            // تعبئة جدول الأدوية
+            fillTable('medicines-table-body', siteData.medicines, savedPrices.medicines, 'medicines');
+            // تعبئة جدول الأعلاف
+            fillTable('food-table-body', siteData.food, savedPrices.food, 'food');
+            // تعبئة جدول المبيدات
+            fillTable('pesticides-table-body', siteData.pesticides, savedPrices.pesticides, 'pesticides');
+            // تعبئة جدول مستلزمات المزارع
+            fillTable('farm-table-body', siteData.farm, savedPrices.farm, 'farm');
+        }
+
+        function fillTable(tbodyId, itemsObj, pricesObj, category) {
+            let tbody = document.getElementById(tbodyId);
+            tbody.innerHTML = '';
+            for (let id in itemsObj) {
+                let price = pricesObj[id] !== undefined ? pricesObj[id] : 0;
+                tbody.innerHTML += `
+                    <tr>
+                        <td><strong>${itemsObj[id]}</strong></td>
+                        <td><input type="number" id="input-${category}-${id}" class="input-field" value="${price}"></td>
+                        <td><button class="save-btn" onclick="saveCategoryPrice('${category}', '${id}')">حفظ</button></td>
+                    </tr>
+                `;
+            }
+        }
+
+        function saveCategoryPrice(category, id) {
+            let savedPrices = JSON.parse(localStorage.getItem('allSitePrices')) || defaultPrices;
+            let val = Number(document.getElementById(`input-${category}-${id}`).value);
+            
+            if(!savedPrices[category]) savedPrices[category] = {};
+            savedPrices[category][id] = val;
+            
+            localStorage.setItem('allSitePrices', JSON.stringify(savedPrices));
+            
+            // للتوافق المباشر مع صفحة الدواجن لو كانت بتستخدم مفتاح لوحده
+            if(category === 'poultry') {
+                let poultryOnly = JSON.parse(localStorage.getItem('poultryPrices')) || {};
+                poultryOnly[id] = val;
+                localStorage.setItem('poultryPrices', JSON.stringify(poultryOnly));
+            }
+
+            alert(`تم حفظ السعر الجديد بنجاح (${val} جنيه)!`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المركز الطبي للخدمات البيطرية - قسم الدواجن</title>
+    <style>
+        body {
+            background-color: #fbf5e6;
+            font-family: 'Cairo', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .header-banner {
+            background: linear-gradient(135deg, #d4a373, #faedcd);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 3px solid #ccd5ae;
+        }
+        .back-home-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #283618;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+.back-home-btn:hover {
+    background-color: #386641;
+}
+        .header-banner h1 {
+            margin: 0;
+            color: #283618;
+            font-size: 2rem;
+        }
+        .notice-box {
+            background-color: #fefae0;
+            border: 2px dashed #dda15e;
+            padding: 15px;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            color: #bc6c25;
+        }
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .poultry-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-top: 5px solid #dda15e;
+        }
+        .poultry-card h3 {
+            margin-top: 0;
+            color: #283618;
+        }
+        .poultry-desc {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+            min-height: 40px;
+        }
+        .price-tag {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #bc6c25;
+            margin-bottom: 15px;
+        }
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f4f1de;
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+        .quantity-control button {
+            background: #dda15e;
+            color: white;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+        .quantity-control button:hover {
+            background: #bc6c25;
+        }
+        .quantity-control input {
+            width: 50px;
+            text-align: center;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 4px;
+            background: #fff;
+        }
+        .order-section {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 800px;
+            margin: 30px auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .whatsapp-btn {
+            background-color: #25d366;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        .whatsapp-btn:hover {
+            background-color: #1ebe5d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-banner">
+        <a href="index.html" class="back-home-btn">← الرئيسية</a>
+        <h1> قسم حجز الدواجن </h1>
+        <p>أجود أنواع الكتاكيت والبط والرومي تحت إشراف بيطري مباشر</p>
+    </div>
+
+    <div class="notice-box">
+        ⚠️ تنبيه هـام: الحجز متاح طوال الأسبوع، وموعد استلام الطلبات حصرياً يوم <b>الأحد</b> من مقر المركز.
+    </div>
+
+    <div class="container" id="poultry-container">
+        <!-- يتم تعبئة المنتجات تلقائيا عبر JavaScript -->
+    </div>
+
+    <div class="order-section">
+        <h3>إتمام الحجز</h3>
+        <p>اختر الكميات المطلوبة لكل نوع ثم اضغط على زر الإرسال لتأكيد الحجز مباشرة عبر الواتساب.</p>
+        <button class="whatsapp-btn" onclick="sendToWhatsApp()">إرسال تفاصيل الحجز عبر الواتساب 📱</button>
+    </div>
+
+    <script>
+        let savedAllPrices = JSON.parse(localStorage.getItem('allSitePrices')) || {};
+        let poultryPrices = savedAllPrices.poultry || {1: 30, 2: 25, 3: 22, 4: 23, 5: 26, 6: 45, 7: 40, 8: 42, 9: 38, 10: 65};
+
+        const poultryItems = [
+            { id: 1, name: "كتكوت أبيض", desc: "حيوية عالية ومعدل تحويل ممتاز للأعلاف.", price: poultryPrices[1] },
+            { id: 2, name: "كتكوت ساسو", desc: "مناسب للتربية المنزلية والمزارع يتحمل الظروف.", price: poultryPrices[2] },
+            { id: 3, name: "كتكوت بلدي", desc: "سلالة مصرية أصيلة مقاومة للأمراض.", price: poultryPrices[3] },
+            { id: 4, name: "كتكوت فيومي", desc: "منتج جيد للبيض واللحم، نشيط ومقاوم.", price: poultryPrices[4] },
+            { id: 5, name: "كتكوت جميزة", desc: "من أفضل سلالات التسمين والتربية الريفية.", price: poultryPrices[5] },
+            { id: 6, name: "بط مسكوفي", desc: "نمو سريع ولحم صافي قليل الدهون.", price: poultryPrices[6] },
+            { id: 7, name: "بط مولار", desc: "مهجن ممتاز للتسمين وإعطاء أوزان عالية.", price: poultryPrices[7] },
+            { id: 8, name: "بط مولد", desc: "مقاوم للأمراض وسريع النمو.", price: poultryPrices[8] },
+            { id: 9, name: "بط بيور", desc: "أحجام ممتازة وإنتاجية عالية.", price: poultryPrices[9] },
+            { id: 10, name: "رومي بلدي", desc: "رومي أصلي تربية مزارع منزلية ومكثفة.", price: poultryPrices[10] }
+        ];
+
+        function renderProducts() {
+            const container = document.getElementById('poultry-container');
+            container.innerHTML = '';
+
+            poultryItems.forEach(item => {
+                container.innerHTML += `
+                    <div class="poultry-card">
+                        <div>
+                            <h3>${item.name}</h3>
+                            <div class="poultry-desc">${item.desc}</div>
+                            <div class="price-tag">السعر: ${item.price} جنيه</div>
+                        </div>
+                        <div class="quantity-control">
+                            <span>العدد المطلوب:</span>
+                            <div>
+                                <button onclick="changeQty(${item.id}, -1)">-</button>
+                                <input type="text" id="qty-${item.id}" value="0" readonly>
+                                <button onclick="changeQty(${item.id}, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function changeQty(id, change) {
+            const qtyInput = document.getElementById(`qty-${id}`);
+            let currentQty = parseInt(qtyInput.value) || 0;
+            currentQty += change;
+            if (currentQty < 0) currentQty = 0;
+            qtyInput.value = currentQty;
+        }
+
+        function sendToWhatsApp() {
+            let orderDetails = "مرحباً، أرغب في حجز الدواجن التالية:\n\n";
+            let totalGeneral = 0;
+            let hasItems = false;
+
+            poultryItems.forEach(item => {
+                const qty = parseInt(document.getElementById(`qty-${item.id}`).value) || 0;
+                if (qty > 0) {
+                    hasItems = true;
+                    const subtotal = qty * item.price;
+                    totalGeneral += subtotal;
+                    orderDetails += `- ${item.name}: ${qty} عدد (السعر: ${item.price} ج، الإجمالي: ${subtotal} ج)\n`;
+                }
+            });
+
+            if (!hasItems) {
+                alert("الرجاء اختيار نوع واحد على الأقل وتحديد الكمية المطلوبة للحجز.");
+                return;
+            }
+
+            orderDetails += `\nالإجمالي الكلي المتوقع: ${totalGeneral} جنيه\n(ميعاد الاستلام: يوم الأحد القادم)`;
+
+            // استبدلي الرقم ده برقم الواتساب الخاص بالمركز
+            const phoneNumber = "201090970082"; 
+            const encodedMessage = encodeURIComponent(orderDetails);
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        window.onload = renderProducts;
+    </script>
+</body>
+</html>

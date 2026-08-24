@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cleaning & Pest Control | المركز الطبي للخدمات البيطرية</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f8f7;
+            color: #173b35;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: linear-gradient(135deg, #0d5c50, #16806e);
+            color: white;
+            padding: 25px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+        }
+
+        .logo h1 {
+            font-size: 25px;
+            margin-bottom: 5px;
+        }
+
+        .logo p {
+            font-size: 13px;
+            opacity: 0.85;
+        }
+
+        .home-btn {
+            text-decoration: none;
+            color: #0d5c50;
+            background: white;
+            padding: 12px 22px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .home-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            text-align: center;
+            padding: 55px 20px 35px;
+        }
+
+        .hero .small-title {
+            color: #16806e;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            color: #71817d;
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.8;
+        }
+
+        /* ================= SEARCH ================= */
+
+        .tools {
+            width: 86%;
+            max-width: 1100px;
+            margin: 0 auto 35px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 16px 50px 16px 20px;
+            border: 1px solid #dce7e4;
+            border-radius: 35px;
+            outline: none;
+            background: white;
+            font-size: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 14px;
+            font-size: 20px;
+        }
+
+        /* ================= CATEGORIES ================= */
+
+        .categories {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .category-btn {
+            border: none;
+            background: white;
+            color: #176457;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: #16806e;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* ================= PRODUCTS ================= */
+
+        .food-container {
+            width: 86%;
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+
+            padding-bottom: 70px;
+        }
+
+        .food-card {
+            background: white;
+            border-radius: 22px;
+            overflow: hidden;
+            border: 1px solid #e5eeeb;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            transition: 0.35s;
+            position: relative;
+        }
+
+        .food-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .food-image {
+    height: 190px;
+    background: linear-gradient(135deg, #e8f5f1, #d7eee8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* عشان الصورة ما تطلعش بره حدود المربع */
+}
+
+.food-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* عشان الصورة تظهر كاملة وبأبعادها الطبيعية جوا المربع */
+    padding: 10px; /* مسافة بسيطة عشان الصورة ما تلزقش في الحروف */
+    transform: scale(1.1);
+}
+
+        .food-info {
+            padding: 22px;
+        }
+
+        .food-number {
+            color: #16806e;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .food-name {
+            font-size: 21px;
+            margin-bottom: 10px;
+            color: #173b35;
+        }
+
+        .food-category {
+            display: inline-block;
+            background: #edf8f5;
+            color: #16806e;
+            padding: 6px 11px;
+            border-radius: 15px;
+            font-size: 11px;
+            margin-bottom: 12px;
+        }
+
+        .food-description {
+            color: #778783;
+            font-size: 14px;
+            line-height: 1.7;
+            min-height: 48px;
+            margin-bottom: 18px;
+        }
+
+        .order-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+            background: #16806e;
+            color: white;
+            padding: 13px;
+            border-radius: 12px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .order-btn:hover {
+            background: #0d5c50;
+            transform: translateY(-2px);
+        }
+
+        /* ================= NO RESULTS ================= */
+
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 50px;
+            color: #7b8986;
+            display: none;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #103f37;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer h3 {
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 900px) {
+            .food-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero h2 {
+                font-size: 30px;
+            }
+            .food-container {
+                grid-template-columns: 1fr;
+                width: 90%;
+            }
+            .tools {
+                width: 90%;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+        <div class="logo">
+            <h1>المركز الطبي للخدمات البيطرية</h1>
+            <p>Veterinary Medical Center</p>
+        </div>
+        <a href="index.html" class="home-btn">🏠 الصفحة الرئيسية</a>
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+        <div class="small-title">PEST CONTROL & CLEANING</div>
+        <h2>    مكافحة حشرات وقوارض  🧴🧪</h2>
+        <p>اكتشف أقوى المبيدات الحشرية ومطهرات المزارع المتوفرة في المركز الطبي للخدمات البيطرية للحفاظ على بيئة صحية وآمنة.</p>
+    </section>
+
+
+    <!-- ================= SEARCH + CATEGORIES ================= -->
+
+    <div class="tools">
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="ابحثي عن مبيد أو مطهر...">
+        </div>
+
+        <div class="categories">
+            <button class="category-btn active" onclick="filterCategory('all', this)">الكل</button>
+            
+        </div>
+    </div>
+
+
+    <!-- ================= PRODUCTS ================= -->
+
+    <main>
+        <div class="food-container" id="foodContainer">
+            <div class="no-results" id="noResults">
+                😔 مش لاقيين المنتج ده
+            </div>
+        </div>
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+        <h3>المركز الطبي للخدمات البيطرية</h3>
+        <p>د. إبراهيم كامل الرفاعي</p>
+        <p>Veterinary Medical Center © 2026</p>
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        const foods = [
+             
+{
+    name: "سوبر راجون مبيد حشري",
+    category: "أدوات الرش والمطهرات",
+    description: "مبيد حشري فعال وفوري للقضاء على الحشرات الزاحفة والطائرة وحماية المكان بكفاءة.",
+    image: "e.jpg"
+},
+            {
+    name: "راجون سبراي مبيد حشري",
+    category: "أدوات الرش والمطهرات",
+    description: "بخاخ مبيد حشري فعال ومخصص للقضاء على الحشرات الطائرة والزاحفة وتطهير الأجواء في المزرعة.",
+    image: "ee.jpg"
+},
+           
+         {
+    name: "بخاخ لعنة الفراعنة للمطهرات",
+    category: "أدوات الرش والمطهرات",
+    description: "بخاخ معقم متعدد الأغراض لتطهير الأسطح والقضاء على البكتيريا والفيروسات وحماية بيئة الحيوانات بكفاءة.",
+    image: "eee.jpg"
+},
+             
+{
+    name: "مسحوق غبار سوبر راجون",
+    category: "أدوات الرش والمطهرات",
+    description: "مسحوق غبار قاتل للحشرات الزاحفة، مصمم بفوهة توزيع دقيقة لمكافحة الآفات الموجهة مثل الصراصير والنمل بكفاءة عالية.",
+    image: "eeee.jpg"
+},
+           
+{
+    name: "   بخاخ الفرعون القاتل  ",
+    category: "أدوات الرش والمطهرات",
+    description: "بخاخ معقم ومطهر قوي للأسطح والقضاء على الفيروسات والبكتيريا، مع غطاء رش أزرق لسهولة الاستخدام والتوزيع بالمزرعة.",
+    image: "eeeee.jpg"
+},
+{
+    name: "فاروبيد مبيد القوارض",
+    category: "أدوات الرش والمطهرات",
+    description: "طعم مسمل على قمح لمكافحة الفوارض والقوارض بكفاءة عالية، من إنتاج شركة كفر الزيات للمبيدات والكيماويات.",
+    image: "eeeeee.jpg"
+},
+{
+    name: "فوكسيم موفي 50%",
+    category: "أدوات الرش والمطهرات",
+    description: "مبيد للقضاء على الطفيليات الخارجية وحماية الحيوانات وراحتها بتركيز 50%.",
+    image: "eeeeeee.jpg"
+},
+{
+    name: "سوبر بيوتوكس 10%",
+    category: "أدوات الرش والمطهرات",
+    description: "مبيد بيطري مركز قابل للاستحلاب للقضاء على الطفيليات الخارجية وحماية الحيوانات.",
+    image: "eeeeeeee.jpg"
+},
+{
+    name: "راتونار 80% مسحوق",
+    category: "أدوات الرش والمطهرات",
+    description: "مبيد بقشان وقوارض (تريزينك ديفوسفيد) بتركيز 80% لمكافحة القوارض والآفات بكفاءة عالية.",
+    image: "eeeeeeeee.jpg"
+},
+        ];
+
+        const container = document.getElementById("foodContainer");
+        const noResults = document.getElementById("noResults");
+
+        function displayFoods(list) {
+            container.innerHTML = "";
+
+            if (list.length === 0) {
+                noResults.style.display = "block";
+                container.appendChild(noResults);
+                return;
+            }
+
+            noResults.style.display = "none";
+
+            list.forEach((food, index) => {
+                const card = document.createElement("div");
+                card.className = "food-card";
+
+                card.innerHTML = `
+                    <div class="food-image">
+    <img src="${food.image}" alt="${food.name}">
+</div>
+                    <div class="food-info">
+                        <div class="food-number">
+                            ITEM ${String(index + 1).padStart(2, "0")}
+                        </div>
+                        <h3 class="food-name">
+                            ${food.name}
+                        </h3>
+                        <span class="food-category">
+                            ${food.category}
+                        </span>
+                        <p class="food-description">
+                            ${food.description}
+                        </p>
+                     <a href="https://wa.me/201090970082?text=${encodeURIComponent('السلام عليكم، أريد طلب المنتج التالي:\nالاسم: ' + food.name + '\nرابط الصورة: ' + window.location.origin + '/' + food.image)}" target="_blank" class="order-btn">
+                            Order on WhatsApp
+                        </a>
+
+                        <button
+    type="button"
+    class="wishlist-btn"
+    style="
+        width:100%;
+        margin-top:8px;
+        padding:13px;
+        border:none;
+        border-radius:12px;
+        background:#edf8f5;
+        color:#16806e;
+        font-weight:bold;
+        cursor:pointer;
+    "
+>
+    إضافة للمفضلة
+</button>
+                    </div>
+                `;
+const wishlistBtn = card.querySelector(".wishlist-btn");
+
+wishlistBtn.onclick = function () {
+
+    let cartItems =
+        JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    const exists = cartItems.some(
+        item => item.name === food.name
+    );
+
+    if (exists) {
+        alert("المنتج موجود بالفعل في المفضلة");
+        return;
+    }
+
+    cartItems.push({
+        name: food.name,
+        category: food.category,
+        description: food.description,
+        image: food.image
+    });
+
+    localStorage.setItem(
+        "cartItems",
+        JSON.stringify(cartItems)
+    );
+
+    alert("تمت إضافة المنتج إلى المفضلة ❤️");
+};
+
+                container.appendChild(card);
+            });
+        }
+
+        const searchInput = document.getElementById("searchInput");
+
+        searchInput.addEventListener("input", function () {
+            const searchValue = this.value.toLowerCase().trim();
+
+            const filteredFoods = foods.filter(food =>
+                food.name.toLowerCase().includes(searchValue) ||
+                food.category.toLowerCase().includes(searchValue) ||
+                food.description.toLowerCase().includes(searchValue)
+            );
+
+            displayFoods(filteredFoods);
+        });
+
+        function filterCategory(category, button) {
+            document.querySelectorAll(".category-btn").forEach(btn => {
+                btn.classList.remove("active");
+            });
+
+            button.classList.add("active");
+
+            if (category === "all") {
+                displayFoods(foods);
+                return;
+            }
+
+            const filteredFoods = foods.filter(food => food.category === category);
+            displayFoods(filteredFoods);
+        }
+
+        displayFoods(foods);
+
+    </script>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+
+</html>

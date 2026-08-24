@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinary Medical center</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <body>
+
+
+<!-- ==================== Floating Glass Navbar ==================== -->
+ 
+  
+  <!-- ==================== Floating Navbar ==================== -->
+<header class="navbar-wrapper">
+  <nav class="custom-navbar">
+    
+    <!-- اللوجو واسم المركز -->
+    <a href="index.html" class="nav-logo">
+      <img src="logo.jpg" alt="Logo" class="logo-img">
+      <span data-ar="المركز الطبي للخدمات البيطرية" data-en="Veterinary Medical Center">المركز الطبي للخدمات البيطرية</span>
+    </a>
+
+    <!-- روابط التنقل -->
+    <ul class="nav-links">
+      <li><a href="index.html" class="active" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+      
+      <li class="nav-item-dropdown">
+        <a href="#" class="dropbtn" data-ar="المنتجات ▾" data-en="Products ▾">المنتجات ▾</a>
+        <div class="dropdown-menu">
+          <a href="products.html" data-ar="الأدوية والمستلزمات" data-en="Medicines & Products">الأدوية والمستلزمات</a>
+          <a href="food.html" data-ar="الأعلاف والأغذية" data-en="Feed & Food">الأعلاف والأغذية</a>
+          <a href="cleaning.html" data-ar="المبيدات الحشرية" data-en="Pesticides">المبيدات الحشرية</a>
+<a href="farm.html" data-ar="مستلزمات المزارع" data-en="Farm Supplies">مستلزمات المزارع</a>
+<a href="poultry.html" data-ar="الدواجن" data-en="Poultry">الدواجن</a>
+        </div>
+      </li>
+
+      <li><a href="services.html" data-ar="الخدمات" data-en="Services">الخدمات</a></li>
+      <li><a href="about.html" data-ar="عن المركز" data-en="About Us">عن المركز</a></li>
+    </ul>
+
+    <!-- خانة البحث واللغة وتواصل معنا -->
+    <div class="nav-actions">
+      
+      <a href="carts.html" class="favorite-nav" title="المفضلة">
+    <i class="fas fa-shopping-cart"></i>
+</a>
+
+      <div class="lang-dropdown">
+        <button id="languageBtn" class="lang-btn" onclick="toggleLanguageMenu()">🌐 <span data-ar="اللغة" data-en="Language">اللغة</span></button>
+        <div id="languageMenu" class="lang-menu-content">
+          <button onclick="changeLanguage('ar')">🇪🇬 العربية</button>
+          <button onclick="changeLanguage('en')">🇬🇧 English</button>
+        </div>
+      </div>
+
+      <a href="contact.html" class="cta-btn" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
+    </div>
+
+  </nav>
+</header>
+
+<!-- 🚨 مكان نتيجة البحث الصحيح (تحت الهيدر وبشكل مخفي مؤقتاً) -->
+<div id="searchResult" class="search-result-container"></div>
+
+
+
+<section class="hero">
+    <section class="why-us">
+
+    <div class="why-title">
+        <span data-ar="✨ ميزتنا" data-en="✨ Why Choose Us">
+    ✨ ميزتنا
+</span>
+
+<h2 data-ar="ليه تختار المركز؟" data-en="Why Choose Us?">
+    ليه تختار المركز؟
+</h2>
+
+<p data-ar="نهتم بصحة حيوانك وكأنها مسؤوليتنا ❤️"
+   data-en="We care about your animal's health as if it were our responsibility ❤️">
+   "صحة أليفك في أيدٍ أمينة 🐾"
+</p>
+    </div>
+
+    <div class="why-items" style="display: flex; flex-direction: column;gap: 20px;">
+
+        <div class="why-item">
+            <div class="why-number">01</div>
+     <div class="why-icon">
+    <img src="oo.jpg" alt="منتجات موثوقة">
+</div>
+
+<p data-ar="أدوية ومنتجات بيطرية بجودة عالية."
+   data-en="High-quality veterinary medicines and products.">
+    أدوية ومنتجات بيطرية بجودة عالية.
+</p>
+        </div>
+
+        <div class="why-item">
+            <div class="why-number">02</div>
+    <div class="why-icon">
+    <img src="g.jpg" alt="تعليمات آمنة">
+</div>
+
+<p data-ar="تطعيمات مناسبة لحماية حيوانك."
+   data-en="Suitable vaccinations to protect your animal.">
+    تطعيمات مناسبة لحماية حيوانك.
+</p>
+        </div>
+
+        <div class="why-item">
+            <div class="why-number">03</div>
+  <div class="why-icon">
+    <img src="gg.jpg" alt="خدمة مميزة">
+</div>
+
+<p data-ar="نهتم بالتفاصيل ونقدم رعاية مميزة."
+   data-en="We care about every detail and provide special care.">
+    نهتم بالتفاصيل ونقدم رعاية مميزة.
+</p>
+        </div>
+
+        <div class="why-item">
+            <div class="why-number">04</div>
+       <div class="why-icon">
+    <img src="oooo.jpg" alt="سهولة التواصل">
+</div>
+<p data-ar="تواصل معنا بسهولة عبر الهاتف أو واتساب."
+   data-en="Contact us easily by phone or WhatsApp.">
+    تواصل معنا بسهولة عبر الهاتف أو واتساب.
+</p>
+        </div>
+
+    </div>
+
+</section>
+
+    <div class="hero-text">
+
+        <span class="hero-small"
+      data-ar="🐾 رعاية ومنتجات بيطرية"
+      data-en="🐾 Veterinary Care & Products">
+    🐾 Veterinary Care & Products
+</span>
+
+        <h1 data-ar="رعاية بيطرية متكاملة وحماية أكيدة لسلامة حيواناتك. "
+   data-en="Everything Your Animal Needs in One Place">
+    رعايه بيطاريه متكامله
+</h1>
+
+        <p data-ar="أدوية بيطرية، تطعيمات، ومنتجات متنوعة مع اهتمام حقيقي بصحة ورعاية حيوانك."
+   data-en="Veterinary medicines, vaccinations, and various products with genuine care for your animal's health.">
+    أدوية بيطرية، تطعيمات، ومنتجات متنوعة
+    مع اهتمام حقيقي بصحة ورعاية حيوانك.
+</p>
+<div class="hero-buttons">
+  
+  <!-- زر استكشف المنتجات المنسدل -->
+  <div class="hero-dropdown">
+    <button class="hero-btn white-btn" data-ar="استكشف المنتجات 💊" data-en="Explore Products 💊">
+      استكشف المنتجات 💊
+    </button>
+    <div class="hero-dropdown-content">
+      <a href="products.html" data-ar="الأدوية والمنتجات" data-en="Medicines & Products">الأدوية والمنتجات</a>
+      <a href="food.html" data-ar="الأعلاف والأغذية" data-en="Feed & Food">الأعلاف والأغذية</a>
+      <a href="cleaning.html" data-ar="المبيدات الحشرية" data-en="Pesticides">المبيدات الحشرية</a>
+<a href="farm.html" data-ar="مستلزمات المزارع" data-en="Farm Supplies">مستلزمات المزارع</a>
+<a href="poultry.html" data-ar="الدواجن" data-en="Poultry">الدواجن</a>
+    </div>
+
+  </div>
+
+  <!-- زر تواصل معنا -->
+  <a href="contact.html" class="hero-btn white-btn" data-ar="📞 تواصل معنا" data-en="📞 Contact Us">
+    📞 تواصل معنا
+  </a>
+
+</div>
+
+
+
+    </div>
+
+    <div class="hero-animal">
+
+        <div class="circle circle-one"></div>
+        <div class="circle circle-two"></div>
+
+        <div class="animal-card">
+    <img src="logo.jpg" alt="رعاية الحيوانات" class="card-img">
+</div>
+        </div>
+
+        
+    
+
+</section>
+
+
+    <main>
+
+        <section id="home" class="welcome">
+
+
+        </section>
+
+
+       
+    
+
+<!-- ==================== CATEGORIES ==================== -->
+
+<section id="products" class="categories-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="sub-title"
+                  data-ar="تصفح خدماتنا"
+                  data-en="Explore Our Services">
+                تصفح خدماتنا
+            </span>
+
+            <h2 class="main-title"
+                data-ar="اختار القسم المناسب"
+                data-en="Choose Your Category">
+                اختار القسم المناسب
+            </h2>
+
+            <p class="section-description"
+               data-ar="اكتشف مجموعتنا من المنتجات والخدمات البيطرية المتخصصة"
+               data-en="Discover our specialized veterinary products and services">
+                اكتشف مجموعتنا من المنتجات والخدمات البيطرية المتخصصة
+            </p>
+
+        </div>
+
+
+        <div class="categories-grid">
+
+
+            <!-- الأدوية والمستلزمات -->
+
+            <div class="category-card">
+
+                <div class="card-img-wrapper">
+
+                    <img
+                        src="oo.jpg"
+                        alt="الأدوية والمستلزمات">
+
+                </div>
+
+                <div class="category-content">
+
+                    <span class="category-number">
+                        01
+                    </span>
+
+                    <h3
+                        data-ar="الأدوية والمستلزمات"
+                        data-en="Medicines & Supplies">
+                        الأدوية والمستلزمات
+                    </h3>
+
+                    <p
+                        data-ar="مجموعة متكاملة من الأدوية والمستحضرات والمستلزمات البيطرية المختارة بعناية."
+                        data-en="A complete collection of carefully selected veterinary medicines and supplies.">
+                        مجموعة متكاملة من الأدوية والمستحضرات والمستلزمات البيطرية المختارة بعناية.
+                    </p>
+
+                    <a href="products.html"
+                       class="view-btn">
+
+                        <span
+                            data-ar="استكشف المنتجات"
+                            data-en="Explore Products">
+                            استكشف المنتجات
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- النظافة ومكافحة الحشرات -->
+
+            <div class="category-card">
+
+                <div class="card-img-wrapper">
+
+                    <img
+                        src="rrr.jpg"
+                        alt=" مبيدات حشريه">
+                </div>
+
+                <div class="category-content">
+
+                    <span class="category-number">
+                        02
+                    </span>
+
+                    <h3
+                    data-ar="مبيدات حشريه "
+                    data-en=" Pesticides">
+                    مبيدات حشريه
+                    </h3>
+
+                    <p
+                        data-ar="منتجات متخصصة للحفاظ على نظافة الحيوانات والبيئة المحيطة ومكافحة الحشرات والآفات."
+                        data-en="Specialized products for animal hygiene, environmental cleanliness and pest control.">
+                        منتجات متخصصة للحفاظ على نظافة الحيوانات والبيئة المحيطة ومكافحة الحشرات والآفات.
+                    </p>
+
+                    <a href="cleaning.html"
+                       class="view-btn">
+
+                        <span
+                            data-ar="استكشف المنتجات"
+                            data-en="Explore Products">
+                            استكشف المنتجات
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- غذاء الحيوانات والأعلاف -->
+
+            <div class="category-card">
+
+                <div class="card-img-wrapper">
+
+                    <img
+                        src="p.jpg"
+                        
+                        alt="غذاء الحيوانات والأعلاف">
+
+                </div>
+
+                <div class="category-content">
+
+                    <span class="category-number">
+                        03
+                    </span>
+
+                    <h3
+                        data-ar="غذاء الحيوانات والأعلاف"
+                        data-en="Feed & Food">
+                        غذاء الحيوانات والأعلاف
+                    </h3>
+
+                    <p
+                        data-ar="أعلاف وأطعمة عالية الجودة بقيمة غذائية متكاملة لمختلف أنواع الحيوانات."
+                        data-en="High-quality feed and food with complete nutritional value for different animals.">
+                        أعلاف وأطعمة عالية الجودة بقيمة غذائية متكاملة لمختلف أنواع الحيوانات.
+                    </p>
+
+                    <a href="food.html"
+                       class="view-btn">
+
+                        <span
+                            data-ar="تصفح الأغذية"
+                            data-en="Explore Food">
+                            تصفح الأغذية
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+            <!-- مستلزمات المزارع -->
+<div class="category-card">
+
+    <div class="card-img-wrapper">
+        <img
+            src="r.jpg"
+            alt="مستلزمات المزارع">
+    </div>
+
+    <div class="category-content">
+
+        <span class="category-number">
+            04
+        </span>
+
+        <h3
+            data-ar="مستلزمات المزارع"
+            data-en="Farm Supplies">
+            مستلزمات المزارع
+        </h3>
+
+        <p
+            data-ar="كل ما يحتاجه المزارع من مستلزمات وأدوات تساعد على إدارة المزرعة والعناية بالحيوانات بكفاءة."
+            data-en="Everything farmers need, from essential supplies and tools to support efficient farm management and animal care.">
+            كل ما يحتاجه المزارع من مستلزمات وأدوات تساعد على إدارة المزرعة والعناية بالحيوانات بكفاءة.
+        </p>
+
+        <a
+            href="farm.html"
+            class="view-btn">
+
+            <span
+                data-ar="استكشف المستلزمات"
+                data-en="Explore Supplies">
+                استكشف المستلزمات
+            </span>
+
+        </a>
+
+    </div>
+
+</div>
+
+<div class="category-card">
+    <div class="card-img-wrapper">
+        <img src="i.jpg"
+          alt="الدواجن ">
+    </div>
+    
+    <div class="category-content">
+        <span class="category-number">
+            04
+        </span>
+        
+        <h3 
+            data-ar="الدواجن" 
+            data-en="Poultry">
+            الدواجن
+        </h3>
+        
+        <p 
+            data-ar="رعاية وتنمية الثروة الداجنة وتوفير بيئة صحية وآمنة للطيور داخل المزرعة." 
+            data-en="Poultry care and development providing a healthy and safe environment for birds.">
+            رعاية وتنمية الثروة الداجنة وتوفير بيئة صحية وآمنة للطيور داخل المزرعة.
+        </p>
+        
+        <a href="poultry.html" class="view-btn">
+            <span 
+                data-ar="استكشف القسم" 
+                data-en="Explore Section">
+                استكشف القسم
+            </span>
+        </a>
+    </div>
+</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================== CONTACT ==================== -->
+
+<section id="contact" class="clean-contact">
+
+    <div class="contact-box">
+
+        <span class="contact-label">
+            CONTACT
+        </span>
+
+        <h2
+            data-ar="تواصل معنا"
+            data-en="Get In Touch">
+            تواصل معنا
+        </h2>
+
+        <p
+            data-ar="للاستفسار عن المنتجات أو الطلبات، تواصل معنا مباشرة."
+            data-en="For product inquiries or orders, contact us directly.">
+            للاستفسار عن المنتجات أو الطلبات، تواصل معنا مباشرة.
+        </p>
+
+        <div class="contact-actions">
+
+            <a
+                href="https://www.facebook.com/share/1DEfcc8v1y/?mibextid=wwXIfrss"
+                class="facebook-btn"
+                target="_blank">
+                Visit Facebook
+            </a>
+
+            <a
+                href="tel:010056789"
+                class="phone-btn">
+                010090970082
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+   <div style="text-align: center; padding: 20px;">
+    <a href="admin.html" style="color: #bbb; font-size: 0.8rem; text-decoration: none;">إدارة المركز ⚙️</a>
+</div>
+
+<script>
+const languageBtn = document.getElementById("languageBtn");
+const languageMenu = document.getElementById("languageMenu");
+
+languageBtn.onclick = function () {
+    languageMenu.style.display =
+        languageMenu.style.display === "block" ? "none" : "block";
+};
+
+function changeLanguage(language) {
+
+    if (language === "en") {
+
+        document.documentElement.lang = "en";
+
+        document.querySelectorAll("[data-en]").forEach(function(element) {
+            element.textContent = element.getAttribute("data-en");
+        });
+
+        languageBtn.textContent = "🌐 Language";
+
+    } else {
+
+        document.documentElement.lang = "ar";
+
+        document.querySelectorAll("[data-ar]").forEach(function(element) {
+            element.textContent = element.getAttribute("data-ar");
+        });
+
+        languageBtn.textContent = "🌐 اللغة";
+    }
+
+    languageMenu.style.display = "none";
+}
+
+
+    
+
+  
+ 
+// 1. قائمة بجميع المنتجات والأغذية الموجودة في الموقع ورابط كل منها
+const allProducts = [
+    // الأعلاف والأغذية (الموجودة في صفحة food.html)
+    { name: "علف التسمين", url: "food.html" },
+    { name: "علف الدواجن", url: "food.html" },
+    { name: "أعلاف", url: "food.html" },
+    
+    // المنتجات والأدوية (الموجودة في صفحة products.html)
+    { name: "المنتج 4", url: "products.html" },
+    { name: "المنتج 1", url: "products.html" },
+    { name: "المنتج 2", url: "products.html" },
+    { name: "المنتج 3", url: "products.html" },
+    { name: "أدوية بيطرية", url: "products.html" },
+    { name: "منتجات بيطرية", url: "products.html" }
+];
+
+// 2. دالة البحث الرئيسية
+function handleSearch() {
+    const searchInput = document.getElementById('searchInput').value.trim().toLowerCase();
+    const searchResult = document.getElementById('searchResult');
+
+    if (!searchInput) {
+        searchResult.style.display = "none";
+        return;
+    }
+
+    // الفلترة في جميع العناصر
+    const results = allProducts.filter(item => 
+        item.name.toLowerCase().includes(searchInput)
+    );
+
+    searchResult.style.display = "block";
+
+    if (results.length > 0) {
+        let resultsHTML = '<div style="padding: 10px; background: #ffffff; border-radius: 8px; border: 1px solid #ddd; margin-top: 10px;">';
+        results.forEach(item => {
+            resultsHTML += `
+                <div style="padding: 10px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-weight: bold; color: #333;">${item.name}</span>
+                    <a href="${item.url}" style="background: #28a745; color: white; padding: 5px 12px; text-decoration: none; border-radius: 5px; font-size: 14px;">عرض المنتج</a>
+                </div>
+            `;
+        });
+        resultsHTML += '</div>';
+        searchResult.innerHTML = resultsHTML;
+    } else {
+        searchResult.innerHTML = `
+            <div style="text-align:center; padding:15px; background:#fff; border-radius:8px; border: 1px solid #ddd; margin-top:10px;">
+                🔍 <br> <strong>لم يتم العثور على هذا المنتج</strong> <br> <small style="color:#777;">ابحث عن منتج آخر</small>
+            </div>
+        `;
+    }
+}
+
+// 3. تشغيل البحث عند الضغط على Enter
+document.getElementById('searchInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        handleSearch();
+    }
+});
+</script>
+<script>
+    function addToWishlist(productName) {
+        let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cart.push({ title: productName });
+        localStorage.setItem('cartItems', JSON.stringify(cart));
+        alert('تم إضافة ' + productName + ' للمفضلة! 🛒');
+    }
+</script>
+      
+</script>
+  </body>
+</html>

@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>المفضلة | المركز الطبي للخدمات البيطرية</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f8f7;
+            color: #173b35;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: linear-gradient(135deg, #0d5c50, #16806e);
+            color: white;
+            padding: 25px 7%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+        }
+
+        header h1 {
+            font-size: 25px;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 13px;
+            opacity: 0.85;
+        }
+
+        .home-btn {
+            text-decoration: none;
+            color: #0d5c50;
+            background: white;
+
+            padding: 12px 22px;
+
+            border-radius: 30px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .home-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+        }
+
+        /* ================= TITLE ================= */
+
+        .page-title {
+            text-align: center;
+            padding: 55px 20px 35px;
+        }
+
+        .page-title .small-title {
+            color: #16806e;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .page-title h2 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .page-title p {
+            color: #71817d;
+            line-height: 1.8;
+        }
+
+        /* ================= PRODUCTS ================= */
+
+        #cart-container {
+            width: 86%;
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+
+            padding-bottom: 70px;
+        }
+
+        .favorite-card {
+            background: white;
+
+            border-radius: 22px;
+
+            overflow: hidden;
+
+            border: 1px solid #e5eeeb;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+
+            transition: 0.35s;
+
+            position: relative;
+        }
+
+        .favorite-card:hover {
+            transform: translateY(-8px);
+
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        /* ================= IMAGE ================= */
+
+        .favorite-image {
+            width: 100%;
+            height: 170px;
+
+            background: linear-gradient(
+                135deg,
+                #e8f5f1,
+                #d7eee8
+            );
+
+            overflow: hidden;
+        }
+
+        .favorite-image img {
+            width: 65%;
+            height: 65%;
+
+            object-fit: contain;
+
+            display: block;
+            padding: 15px;
+        }
+
+        /* ================= INFO ================= */
+
+        .favorite-info {
+            padding: 22px;
+        }
+
+        .favorite-number {
+            color: #16806e;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+        }
+
+        .favorite-name {
+            font-size: 21px;
+
+            line-height: 1.5;
+
+            color: #173b35;
+
+            margin-bottom: 10px;
+        }
+
+        .favorite-category {
+            display: inline-block;
+
+            background: #edf8f5;
+
+            color: #16806e;
+
+            padding: 6px 11px;
+
+            border-radius: 15px;
+
+            font-size: 11px;
+
+            margin-bottom: 12px;
+        }
+
+        .favorite-description {
+            color: #778783;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            margin-bottom: 18px;
+        }
+
+        /* ================= BUTTONS ================= */
+
+        .favorite-actions {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 9px;
+        }
+
+        .order-btn {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 100%;
+
+            height: 46px;
+
+            background: #16806e;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 11px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .order-btn:hover {
+            background: #0d5c50;
+
+            transform: translateY(-2px);
+        }
+
+        .remove-btn {
+            width: 100%;
+
+            height: 46px;
+
+            background: white;
+
+            color: #c44d4d;
+
+            border: 1px solid #c44d4d;
+
+            border-radius: 11px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .remove-btn:hover {
+            background: #fff3f3;
+
+            transform: translateY(-2px);
+        }
+
+        /* ================= EMPTY ================= */
+
+        .empty {
+            grid-column: 1 / -1;
+
+            background: white;
+
+            text-align: center;
+
+            padding: 70px 20px;
+
+            border-radius: 22px;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+        }
+
+        .empty h3 {
+            font-size: 24px;
+
+            margin-bottom: 10px;
+        }
+
+        .empty p {
+            color: #778783;
+
+            margin-bottom: 25px;
+        }
+
+        .products-btn {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #16806e;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 13px 25px;
+
+            border-radius: 11px;
+
+            font-weight: bold;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 900px) {
+
+            #cart-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+            .page-title h2 {
+                font-size: 30px;
+            }
+
+            #cart-container {
+                width: 90%;
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+        .order-all-container {
+    width: 86%;
+    max-width: 1200px;
+    margin: -35px auto 70px;
+    text-align: center;
+}
+
+.order-all-btn {
+    display: inline-block;
+    width: 100%;
+    max-width: 500px;
+    padding: 16px 25px;
+    background: linear-gradient(135deg, #16806e, #0d5c50);
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    font-size: 17px;
+    font-weight: bold;
+    box-shadow: 0 8px 25px rgba(13, 92, 80, 0.22);
+    transition: 0.3s;
+}
+
+.order-all-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(13, 92, 80, 0.30);
+}
+
+.order-all-note {
+    color: #778783;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div>
+
+            <h1>
+                المركز الطبي للخدمات البيطرية
+            </h1>
+
+            <p>
+                Veterinary Medical Center
+            </p>
+
+        </div>
+
+
+        <a
+            href="products.html"
+            class="home-btn"
+        >
+            العودة للمنتجات
+        </a>
+
+    </header>
+
+
+    <!-- ================= TITLE ================= -->
+
+    <section class="page-title">
+
+        <div class="small-title">
+            MY FAVORITES
+        </div>
+
+        <h2>
+            المنتجات المفضلة
+        </h2>
+
+        <p>
+            المنتجات التي اخترتها للرجوع إليها بسهولة.
+        </p>
+
+    </section>
+
+
+    <!-- ================= FAVORITES ================= -->
+
+    <main>
+
+        <div id="cart-container"></div>
+
+<div id="order-all-container"></div>
+
+    </main>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    
+   <script>
+
+const cartItems =
+    JSON.parse(localStorage.getItem("cartItems")) || [];
+
+const container =
+    document.getElementById("cart-container");
+const orderAllContainer =
+    document.getElementById("order-all-container");
+
+if (cartItems.length === 0) {
+
+    container.innerHTML = `
+        <div class="empty">
+
+            <h3>السلة فارغة حاليًا</h3>
+
+            <p>
+                أضيفي المنتجات من صفحة المنتجات.
+            </p>
+
+            <a href="products.html" class="products-btn">
+                تصفح المنتجات
+            </a>
+
+        </div>
+    `;
+
+} else {
+
+    container.innerHTML = cartItems.map((product, index) => `
+
+        <div class="cart-item">
+
+           <div class="cart-image">
+
+    <img
+        src="${product.image}"
+        alt="${product.name}"
+        style="
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            display: block;
+            margin: auto;
+        "
+    >
+
+</div>
+
+
+            <div class="cart-info">
+
+                <div class="cart-number">
+                    ITEM ${String(index + 1).padStart(2, "0")}
+                </div>
+
+
+                <h3 class="cart-name">
+                    ${product.name}
+                </h3>
+
+
+                <span class="cart-category">
+                    ${product.category}
+                </span>
+
+
+                <p class="cart-description">
+                    ${product.description}
+                </p>
+
+
+                <a
+                    href="https://wa.me/201090970082?text=${encodeURIComponent(
+                        "مرحباً، أريد طلب: " + product.name
+                    )}"
+                    target="_blank"
+                    class="order-btn"
+                >
+                    Order on WhatsApp
+                </a>
+
+
+                <button
+                    class="remove-btn"
+                    onclick="removeItem(${index})"
+                >
+                    إزالة من المفضلة
+                </button>
+
+            </div>
+
+        </div>
+
+    `).join("");
+
+}
+
+if (cartItems.length > 0) {
+
+    const productsMessage = cartItems.map(
+        (product, index) => {
+
+            return `${index + 1}- ${product.name}`;
+
+        }
+    ).join("\n");
+
+    const message =
+        `مرحباً، أريد طلب المنتجات التالية:\n\n${productsMessage}\n\nشكراً لكم.`;
+
+    const whatsappURL =
+        `https://wa.me/201090970082?text=${encodeURIComponent(message)}`;
+
+    orderAllContainer.innerHTML = `
+
+        <div class="order-all-container">
+
+            <a
+                href="${whatsappURL}"
+                target="_blank"
+                class="order-all-btn"
+            >
+                Order All on WhatsApp
+            </a>
+
+            <p class="order-all-note">
+                إرسال جميع المنتجات الموجودة في المفضلة في طلب واحد
+            </p>
+
+        </div>
+
+    `;
+}
+
+
+function removeItem(index) {
+
+    cartItems.splice(index, 1);
+
+    localStorage.setItem(
+        "cartItems",
+        JSON.stringify(cartItems)
+    );
+
+    location.reload();
+
+}
+
+</script>
+
+
+</body>
+
+</html>
