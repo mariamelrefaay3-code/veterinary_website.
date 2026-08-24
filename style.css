@@ -3053,3 +3053,60 @@ body {
         padding-right: 20px;
     }
 }
+/* ===== إصلاح الـ Navbar على الموبايل فقط ===== */
+@media (max-width: 768px) {
+
+    .navbar-wrapper {
+        padding: 0 8px;
+        top: 10px;
+    }
+
+    .custom-navbar {
+        padding: 8px 10px;
+        border-radius: 25px;
+        gap: 5px;
+    }
+
+    .nav-logo {
+        font-size: 10px !important;
+        gap: 4px !important;
+        flex-shrink: 1;
+        min-width: 0;
+    }
+
+    .nav-logo .logo-img {
+        width: 25px !important;
+        height: 25px !important;
+        flex-shrink: 0;
+    }
+
+    .nav-links {
+        gap: 0;
+        flex-shrink: 1;
+    }
+
+    .nav-links a {
+        font-size: 10px;
+        padding: 5px 6px;
+    }
+
+    .nav-actions {
+        gap: 3px;
+        flex-shrink: 0;
+    }
+
+    .lang-btn {
+        padding: 5px 6px !important;
+        font-size: 9px !important;
+    }
+
+    .cta-btn {
+        padding: 5px 7px;
+        font-size: 9px;
+    }
+
+    .favorite-nav {
+        font-size: 12px;
+        margin: 0 !important;
+    }
+}
