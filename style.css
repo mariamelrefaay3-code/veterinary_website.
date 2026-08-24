@@ -3150,37 +3150,34 @@ body {
     }
 }
 
+  
   @media (max-width: 768px) {
-  /* تثبيت الشاشة والمقاس الأصلي بالزوم المناسب عشان اللوجو يظهر */
   html, body {
     width: 1250px;
     overflow-x: hidden;
   }
   
   body {
-    zoom: 0.40;
+    zoom: 0.41; /* ثبتناه على 0.41 عشان يكون وسط ممتاز */
     transform: none !important;
   }
 
-  /* الشريط جمب بعضه أفقياً وبأبعاد مظبوطة 100% عشان اللوجو يبان */
+  /* ظبطة الشريط الاحترافية عشان الكلمات ما تدخلش في بعضها أبداً */
   header, .navbar, nav {
     width: 1250px !important;
     max-width: none !important;
     margin: 0 auto !important;
     display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
+    flex-wrap: nowrap !important; /* بتمنع أي كلمة تنزل تحت تانية */
     justify-content: space-between !important;
     align-items: center !important;
-    padding: 0 30px !important;
+    gap: 15px !important; /* بتعمل مسافة مظبوطة بين كل كلمة والتانية عشان ما يلزقوش */
     position: relative !important;
-    box-sizing: border-box !important;
   }
 
-  /* حجم الخطوط في الشريط عشان يفضلوا جنب بعض متناسقين وواضحين */
+  /* تصغير حجم خط الشريط حاجة بسيطة بس عشان يبعدوا عن بعض ويتفردوا براحتهم */
   header a, .navbar a, nav a {
-    font-size: 20px !important;
+    font-size: 22px !important; /* تصغير طفيف للخط يناسب المقاس */
     white-space: nowrap !important;
   }
-}  /* دي بتخلي الموبايل يعمل زوم أوت (تصغير) تلقائي للصفحة كلها عشان تبان كلها قدامك */
-/* ===== حل نهائي لشريط التنقل (Navbar) على الموبايل ===== */
+} 
