@@ -2878,297 +2878,106 @@ ul, li {
 
 }
 
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 650px) {
-
-    .categories-section {
-        padding: 60px 16px;
-    }
-
-    .section-heading {
-        margin-bottom: 35px;
-    }
-
-    .section-heading .main-title {
-        font-size: 32px;
-    }
-
-    .categories-grid {
-        grid-template-columns: 1fr;
-
-        gap: 22px;
-    }
-
-    .card-img-wrapper {
-        height: 220px;
-    }
-
-    .category-content {
-        padding: 22px 20px 25px;
-    }
-
-    .category-card h3 {
-        font-size: 19px;
-    }
-
-    .clean-contact {
-        padding: 55px 16px;
-    }
-
-    .contact-box {
-        padding: 40px 20px;
-    }
-
-}
-.product-use {
-    margin-top: 18px;
-    padding-top: 15px;
-    border-top: 1px solid #e5eee9;
-    text-align: right;
-}
-
-.product-use strong {
-    display: block;
-    margin-bottom: 6px;
-    color: #2d8069;
-    font-size: 13px;
-}
-
-.product-use p {
-    margin: 0;
-    color: #71817c;
-    font-size: 12px;
-    line-height: 1.7;
-}
-/* ==========================================
-   FIX - الأقسام الأربعة جنب بعض
-========================================== */
-
-#products.categories-section {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
-    width: 100% !important;
-    max-width: 1400px !important;
-
-    margin: 0 auto !important;
-    padding: 0 20px !important;
-
-    gap: 24px !important;
-
-    box-sizing: border-box !important;
-}
-
-/* نفس حجم وشكل الكروت */
-#products.categories-section .category-card {
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: none !important;
-
-    margin: 0 !important;
-    box-sizing: border-box !important;
-}
-
-/* الصورة */
-#products.categories-section .card-img-wrapper {
-    width: 100% !important;
-    height: auto !important;
-    overflow: hidden !important;
-}
-
-#products.categories-section .card-img-wrapper img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    display: block !important;
-}
-
-/* المحتوى */
-#products.categories-section .category-content {
-    width: 100% !important;
-    box-sizing: border-box !important;
-}
-
-/* ==========================================
-   الموبايل
-========================================== */
-
-@media (max-width: 1000px) {
-    #products.categories-section {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    }
-}
-
-@media (max-width: 550px) {
-    #products.categories-section {
-        grid-template-columns: 1fr !important;
-    }
-}
-.wishlist-icon {
-    font-size: 20px;
-    color: #333;
-    margin: 0 15px; /* بيعمل مسافة بين الأيقونة واللغة/تواصل معنا */
-    text-decoration: none;
-    transition: color 0.3s;
-}/* الكود ده بيشتغل على الموبايل والشاشات الصغيرة بس */
-
-/* ===== Mobile Responsive Fix ===== */
-
-html,
-body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-}
+/* =========================
+   RESPONSIVE DESIGN
+   ========================= */
 
 * {
     box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
-
-    body {
-        width: 100%;
-        overflow-x: hidden;
-    }
-
-    .navbar,
-    nav {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    .container {
-        width: 100%;
-        max-width: 100%;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
+html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
-/* ===== إصلاح الـ Navbar على الموبايل فقط ===== */
-@media (max-width: 768px) {
 
-    .navbar-wrapper {
-        padding: 0 8px;
-        top: 10px;
-    }
-
-    .custom-navbar {
-        padding: 8px 10px;
-        border-radius: 25px;
-        gap: 5px;
-    }
-
-    .nav-logo {
-        font-size: 10px !important;
-        gap: 4px !important;
-        flex-shrink: 1;
-        min-width: 0;
-    }
-
-    .nav-logo .logo-img {
-        width: 25px !important;
-        height: 25px !important;
-        flex-shrink: 0;
-    }
-
-    .nav-links {
-        gap: 0;
-        flex-shrink: 1;
-    }
-
-    .nav-links a {
-        font-size: 10px;
-        padding: 5px 6px;
-    }
-
-    .nav-actions {
-        gap: 3px;
-        flex-shrink: 0;
-    }
-
-    .lang-btn {
-        padding: 5px 6px !important;
-        font-size: 9px !important;
-    }
-
-    .cta-btn {
-        padding: 5px 7px;
-        font-size: 9px;
-    }
-
-    .favorite-nav {
-        font-size: 12px;
-        margin: 0 !important;
-    }
+body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    overflow-x: hidden;
 }
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
 /* =========================
-   MOBILE RESPONSIVE
-========================= */
+   TABLET + MOBILE
+   ========================= */
 
 @media (max-width: 768px) {
 
-    /* الصفحة كلها */
-    html,
-    body {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-    }
-
-    /* =========================
-       NAVBAR
-    ========================= */
+    /* NAVBAR */
 
     .navbar-wrapper {
         width: 100%;
-        max-width: 100%;
     }
 
     .custom-navbar {
         width: 100%;
         max-width: 100%;
-        flex-wrap: wrap;
-        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 15px;
     }
 
     .nav-logo {
-        max-width: 100%;
+        width: 100%;
+        justify-content: center;
     }
 
     .nav-links {
         width: 100%;
-        flex-wrap: wrap;
+        display: flex;
         justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 0;
+        margin: 0;
     }
 
     .nav-actions {
         width: 100%;
-        flex-wrap: wrap;
+        display: flex;
         justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
     }
 
 
-    /* =========================
-       HERO
-    ========================= */
+    /* HERO */
 
     .hero {
         width: 100%;
         max-width: 100%;
-        padding: 30px 15px;
         display: flex;
         flex-direction: column;
+        padding: 30px 15px;
+    }
+
+    .why-us {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px 10px;
+    }
+
+    .why-items {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .why-item {
+        width: 100%;
+        max-width: 100%;
     }
 
     .hero-text {
@@ -3183,7 +2992,7 @@ body {
     }
 
     .hero-text p {
-        font-size: 16px;
+        font-size: 17px;
         line-height: 1.7;
     }
 
@@ -3191,8 +3000,9 @@ body {
         width: 100%;
         display: flex;
         justify-content: center;
+        align-items: center;
         flex-wrap: wrap;
-        gap: 15px;
+        gap: 12px;
     }
 
     .hero-animal {
@@ -3201,30 +3011,7 @@ body {
     }
 
 
-    /* =========================
-       WHY US
-    ========================= */
-
-    .why-us {
-        width: 100%;
-        max-width: 100%;
-        padding: 20px 15px;
-    }
-
-    .why-items {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .why-item {
-        width: 100%;
-        max-width: 100%;
-    }
-
-
-    /* =========================
-       CATEGORIES
-    ========================= */
+    /* CATEGORIES */
 
     .categories-section {
         width: 100%;
@@ -3241,6 +3028,7 @@ body {
     .categories-grid {
         width: 100%;
         max-width: 100%;
+        display: grid;
         grid-template-columns: 1fr;
         gap: 20px;
     }
@@ -3248,12 +3036,11 @@ body {
     .category-card {
         width: 100%;
         max-width: 100%;
+        margin: 0;
     }
 
 
-    /* =========================
-       CONTACT
-    ========================= */
+    /* CONTACT */
 
     .clean-contact {
         width: 100%;
@@ -3272,24 +3059,31 @@ body {
         flex-wrap: wrap;
         gap: 10px;
     }
-
-
-    /* =========================
-       IMAGES
-    ========================= */
-
-    img {
-        max-width: 100%;
-        height: auto;
-    }
 }
 
 
 /* =========================
    SMALL PHONES
-========================= */
+   ========================= */
 
 @media (max-width: 500px) {
+
+    .custom-navbar {
+        padding: 10px;
+    }
+
+    .logo-img {
+        max-width: 60px;
+        height: auto;
+    }
+
+    .nav-links {
+        gap: 6px;
+    }
+
+    .hero {
+        padding: 25px 10px;
+    }
 
     .hero-text h1 {
         font-size: 26px;
@@ -3301,7 +3095,6 @@ body {
 
     .hero-buttons {
         flex-direction: column;
-        align-items: center;
     }
 
     .hero-btn {
@@ -3309,11 +3102,11 @@ body {
         max-width: 300px;
     }
 
-    .category-card {
-        width: 100%;
+    .categories-section {
+        padding: 30px 10px;
     }
 
-    .contact-actions a {
-        max-width: 100%;
+    .category-card {
+        width: 100%;
     }
 }
