@@ -2863,7 +2863,197 @@ ul, li {
     box-shadow:
         0 10px 25px rgba(50, 40, 25, 0.15);
 }
+/* =====================================================
+   TABLET
+===================================================== */
 
+@media (max-width: 950px) {
+
+    .categories-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .categories-section {
+        padding: 60px 16px;
+    }
+
+    .section-heading {
+        margin-bottom: 35px;
+    }
+
+    .section-heading .main-title {
+        font-size: 32px;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+    }
+
+    .card-img-wrapper {
+        height: 220px;
+    }
+
+    .category-content {
+        padding: 22px 20px 25px;
+    }
+
+    .category-card h3 {
+        font-size: 19px;
+    }
+
+    .clean-contact {
+        padding: 55px 16px;
+    }
+
+    .contact-box {
+        padding: 40px 20px;
+    }
+
+}
+.product-use {
+    margin-top: 18px;
+    padding-top: 15px;
+    border-top: 1px solid #e5eee9;
+    text-align: right;
+}
+
+.product-use strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #2d8069;
+    font-size: 13px;
+}
+
+.product-use p {
+    margin: 0;
+    color: #71817c;
+    font-size: 12px;
+    line-height: 1.7;
+}
+/* ==========================================
+   FIX - الأقسام الأربعة جنب بعض
+========================================== */
+
+#products.categories-section {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+    width: 100% !important;
+    max-width: 1400px !important;
+
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+
+    gap: 24px !important;
+
+    box-sizing: border-box !important;
+}
+
+/* نفس حجم وشكل الكروت */
+#products.categories-section .category-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* الصورة */
+#products.categories-section .card-img-wrapper {
+    width: 100% !important;
+    height: auto !important;
+    overflow: hidden !important;
+}
+
+#products.categories-section .card-img-wrapper img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* المحتوى */
+#products.categories-section .category-content {
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* ==========================================
+   الموبايل
+========================================== */
+
+@media (max-width: 1000px) {
+    #products.categories-section {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 550px) {
+    #products.categories-section {
+        grid-template-columns: 1fr !important;
+    }
+}
+.wishlist-icon {
+    font-size: 20px;
+    color: #333;
+    margin: 0 15px; /* بيعمل مسافة بين الأيقونة واللغة/تواصل معنا */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.wishlist-icon:hover {
+    color: #e74c3c; /* لون القلب لما تقفي عليه بالماوس */
+}
+/* ===== Mobile Responsive Fix ===== */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .navbar,
+    nav {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
 @media (max-width: 768px) {
   html, body {
     width: 1250px;
