@@ -3110,79 +3110,29 @@ body {
         margin: 0 !important;
     }
 }
-@media (max-width: 768px) {
-
-    .navbar {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        padding: 10px;
-    }
-
-    .navbar > * {
-        max-width: 100%;
-    }
-
-    .hero,
-    .home,
-    .section,
-    .products,
-    .products-grid {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .products-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .product-card {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    h1,
-    h2,
-    h3,
-    p {
-        max-width: 100%;
-        overflow-wrap: break-word;
-    }
-}
-
-  /* =========================
-   RESPONSIVE MOBILE
-========================= */
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    width: 100%;
-    overflow-x: hidden;
-}
-
-body {
-    width: 100%;
-    margin: 0;
-    overflow-x: hidden;
-}
-
-/* الصور لا تتعدى عرض الشاشة */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
 /* =========================
-   NAVBAR
+   MOBILE RESPONSIVE
 ========================= */
 
 @media (max-width: 768px) {
+
+    /* الصفحة كلها */
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
 
     .navbar-wrapper {
         width: 100%;
+        max-width: 100%;
     }
 
     .custom-navbar {
@@ -3196,23 +3146,18 @@ img {
         max-width: 100%;
     }
 
-    .logo-img {
-        max-width: 55px;
-        height: auto;
-    }
-
     .nav-links {
         width: 100%;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 10px;
     }
 
     .nav-actions {
         width: 100%;
-        justify-content: center;
         flex-wrap: wrap;
+        justify-content: center;
     }
+
 
     /* =========================
        HERO
@@ -3243,15 +3188,18 @@ img {
     }
 
     .hero-buttons {
+        width: 100%;
+        display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        gap: 15px;
     }
 
     .hero-animal {
         width: 100%;
         max-width: 100%;
-        margin-top: 30px;
     }
+
 
     /* =========================
        WHY US
@@ -3265,12 +3213,14 @@ img {
 
     .why-items {
         width: 100%;
+        max-width: 100%;
     }
 
     .why-item {
         width: 100%;
         max-width: 100%;
     }
+
 
     /* =========================
        CATEGORIES
@@ -3290,6 +3240,7 @@ img {
 
     .categories-grid {
         width: 100%;
+        max-width: 100%;
         grid-template-columns: 1fr;
         gap: 20px;
     }
@@ -3298,6 +3249,7 @@ img {
         width: 100%;
         max-width: 100%;
     }
+
 
     /* =========================
        CONTACT
@@ -3315,7 +3267,53 @@ img {
     }
 
     .contact-actions {
-        flex-wrap: wrap;
+        display: flex;
         justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+
+    /* =========================
+       IMAGES
+    ========================= */
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 500px) {
+
+    .hero-text h1 {
+        font-size: 26px;
+    }
+
+    .hero-text p {
+        font-size: 15px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-btn {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .category-card {
+        width: 100%;
+    }
+
+    .contact-actions a {
+        max-width: 100%;
     }
 }
