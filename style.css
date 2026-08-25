@@ -2864,249 +2864,33 @@ ul, li {
         0 10px 25px rgba(50, 40, 25, 0.15);
 }
 
-
-/* =====================================================
-   TABLET
-===================================================== */
-
-@media (max-width: 950px) {
-
-    .categories-grid {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-    }
-
-}
-
-/* =========================
-   RESPONSIVE DESIGN
-   ========================= */
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-body {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    overflow-x: hidden;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-
-/* =========================
-   TABLET + MOBILE
-   ========================= */
-
 @media (max-width: 768px) {
+  html, body {
+    width: 1250px;
+    overflow-x: hidden;
+  }
+  
+  body {
+    zoom: 0.41; /* ثبتناه على 0.41 عشان يكون وسط ممتاز */
+    transform: none !important;
+  }
 
-    /* NAVBAR */
+  /* ظبطة الشريط الاحترافية عشان الكلمات ما تدخلش في بعضها أبداً */
+  header, .navbar, nav {
+    width: 1250px !important;
+    max-width: none !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-wrap: nowrap !important; /* بتمنع أي كلمة تنزل تحت تانية */
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 15px !important; /* بتعمل مسافة مظبوطة بين كل كلمة والتانية عشان ما يلزقوش */
+    position: relative !important;
+  }
 
-    .navbar-wrapper {
-        width: 100%;
-    }
-
-    .custom-navbar {
-        width: 100%;
-        max-width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        padding: 15px;
-    }
-
-    .nav-logo {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .nav-links {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px;
-        padding: 0;
-        margin: 0;
-    }
-
-    .nav-actions {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-
-    /* HERO */
-
-    .hero {
-        width: 100%;
-        max-width: 100%;
-        display: flex;
-        flex-direction: column;
-        padding: 30px 15px;
-    }
-
-    .why-us {
-        width: 100%;
-        max-width: 100%;
-        padding: 20px 10px;
-    }
-
-    .why-items {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .why-item {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .hero-text {
-        width: 100%;
-        max-width: 100%;
-        text-align: center;
-    }
-
-    .hero-text h1 {
-        font-size: 30px;
-        line-height: 1.4;
-    }
-
-    .hero-text p {
-        font-size: 17px;
-        line-height: 1.7;
-    }
-
-    .hero-buttons {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 12px;
-    }
-
-    .hero-animal {
-        width: 100%;
-        max-width: 100%;
-    }
-
-
-    /* CATEGORIES */
-
-    .categories-section {
-        width: 100%;
-        max-width: 100%;
-        padding: 40px 15px;
-    }
-
-    .container {
-        width: 100%;
-        max-width: 100%;
-        padding: 0;
-    }
-
-    .categories-grid {
-        width: 100%;
-        max-width: 100%;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .category-card {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-    }
-
-
-    /* CONTACT */
-
-    .clean-contact {
-        width: 100%;
-        max-width: 100%;
-        padding: 30px 15px;
-    }
-
-    .contact-box {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .contact-actions {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-}
-
-
-/* =========================
-   SMALL PHONES
-   ========================= */
-
-@media (max-width: 500px) {
-
-    .custom-navbar {
-        padding: 10px;
-    }
-
-    .logo-img {
-        max-width: 60px;
-        height: auto;
-    }
-
-    .nav-links {
-        gap: 6px;
-    }
-
-    .hero {
-        padding: 25px 10px;
-    }
-
-    .hero-text h1 {
-        font-size: 26px;
-    }
-
-    .hero-text p {
-        font-size: 15px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .hero-btn {
-        width: 90%;
-        max-width: 300px;
-    }
-
-    .categories-section {
-        padding: 30px 10px;
-    }
-
-    .category-card {
-        width: 100%;
-    }
+  /* تصغير حجم خط الشريط حاجة بسيطة بس عشان يبعدوا عن بعض ويتفردوا براحتهم */
+  header a, .navbar a, nav a {
+    font-size: 22px !important; /* تصغير طفيف للخط يناسب المقاس */
+    white-space: nowrap !important;
+  }
 }
