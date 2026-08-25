@@ -3150,414 +3150,172 @@ body {
     }
 }
 
-  /* =====================================
-   📱 MOBILE RESPONSIVE FIX
-===================================== */
+  /* =========================
+   RESPONSIVE MOBILE
+========================= */
 
-@media screen and (max-width: 768px) {
+* {
+    box-sizing: border-box;
+}
 
-    /* منع الصفحة من الخروج يمين وشمال */
-    html,
-    body {
-        width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
-    }
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
 
-    * {
-        box-sizing: border-box !important;
-    }
+body {
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
 
-    /* الصور */
-    img {
-        max-width: 100% !important;
-        height: auto !important;
-    }
+/* الصور لا تتعدى عرض الشاشة */
+img {
+    max-width: 100%;
+    height: auto;
+}
 
+/* =========================
+   NAVBAR
+========================= */
 
-    /* =================================
-       NAVBAR
-    ================================= */
+@media (max-width: 768px) {
 
     .navbar-wrapper {
-        top: 8px !important;
-        left: 8px !important;
-        right: 8px !important;
-        padding: 0 !important;
+        width: 100%;
     }
 
     .custom-navbar {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 8px 10px !important;
-
-        display: flex !important;
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: 6px !important;
-
-        border-radius: 20px !important;
+        width: 100%;
+        max-width: 100%;
+        flex-wrap: wrap;
+        padding: 10px;
     }
 
     .nav-logo {
-        font-size: 11px !important;
-        max-width: 100% !important;
+        max-width: 100%;
     }
 
-    .nav-logo .logo-img {
-        width: 28px !important;
-        height: 28px !important;
+    .logo-img {
+        max-width: 55px;
+        height: auto;
     }
 
     .nav-links {
-        width: 100% !important;
-
-        display: flex !important;
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-
-        gap: 3px !important;
-    }
-
-    .nav-links a {
-        font-size: 10px !important;
-        padding: 5px 7px !important;
-        margin: 0 !important;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
     }
 
     .nav-actions {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: 5px !important;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
-    .search-mini {
-        max-width: 125px !important;
-    }
-
-    .search-mini input {
-        width: 70px !important;
-        font-size: 10px !important;
-    }
-
-    .lang-btn {
-        font-size: 10px !important;
-        padding: 5px 8px !important;
-    }
-
-    .cta-btn {
-        font-size: 10px !important;
-        padding: 5px 9px !important;
-    }
-
-
-    /* =================================
-       مسافة تحت النافبار
-    ================================= */
-
-    body {
-        padding-top: 145px !important;
-    }
-
-
-    /* =================================
+    /* =========================
        HERO
-    ================================= */
+    ========================= */
 
     .hero {
-        width: 100% !important;
-        min-height: auto !important;
-
-        padding: 30px 15px !important;
-
-        display: flex !important;
-        flex-direction: column !important;
-
-        gap: 30px !important;
-
-        overflow: visible !important;
+        width: 100%;
+        max-width: 100%;
+        padding: 30px 15px;
+        display: flex;
+        flex-direction: column;
     }
 
-    .hero-text,
-    .hero-content,
-    .hero-container {
-        width: 100% !important;
-        max-width: 100% !important;
-
-        position: relative !important;
-
-        /* مهم جدًا: عندك -180px عامل مشكلة */
-        top: 0 !important;
-
-        text-align: center !important;
+    .hero-text {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
     }
 
     .hero-text h1 {
-        font-size: 32px !important;
-        line-height: 1.4 !important;
+        font-size: 30px;
+        line-height: 1.4;
     }
 
     .hero-text p {
-        font-size: 15px !important;
-        line-height: 1.8 !important;
+        font-size: 16px;
+        line-height: 1.7;
     }
-
-
-    /* أزرار الهيرو */
 
     .hero-buttons {
-        width: 100% !important;
-
-        display: flex !important;
-        flex-direction: column !important;
-
-        align-items: center !important;
-        gap: 12px !important;
+        justify-content: center;
+        flex-wrap: wrap;
     }
-
-    .hero-btn.white-btn,
-    .hero-dropdown .hero-btn {
-        width: min(240px, 90%) !important;
-        height: 55px !important;
-        font-size: 15px !important;
-    }
-
-
-    /* =================================
-       دائرة صورة الحيوان
-    ================================= */
 
     .hero-animal {
-        width: 280px !important;
-        height: 280px !important;
-        max-width: 100% !important;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 30px;
     }
 
-    .circle-one {
-        width: 250px !important;
-        height: 250px !important;
+    /* =========================
+       WHY US
+    ========================= */
+
+    .why-us {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px 15px;
     }
 
-    .circle-two {
-        width: 195px !important;
-        height: 195px !important;
+    .why-items {
+        width: 100%;
     }
 
-    .animal-card {
-        width: 180px !important;
-        height: 180px !important;
-
-        min-width: 180px !important;
-        min-height: 180px !important;
+    .why-item {
+        width: 100%;
+        max-width: 100%;
     }
 
-
-    /* =================================
-       العناوين
-    ================================= */
-
-    h1 {
-        font-size: 32px !important;
-    }
-
-    h2,
-    h3 {
-        font-size: 27px !important;
-    }
-
-
-    /* =================================
-       الأقسام
-    ================================= */
+    /* =========================
+       CATEGORIES
+    ========================= */
 
     .categories-section {
-        width: 100% !important;
-        padding: 50px 15px !important;
+        width: 100%;
+        max-width: 100%;
+        padding: 40px 15px;
     }
 
-    .categories-section .container {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 !important;
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
     }
 
     .categories-grid {
-        width: 100% !important;
-
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-
-        gap: 20px !important;
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .category-card {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
+        width: 100%;
+        max-width: 100%;
     }
 
-    .card-img-wrapper {
-        width: 100% !important;
-        height: 200px !important;
-    }
-
-
-    /* =================================
-       SERVICES
-    ================================= */
-
-    .services {
-        width: 100% !important;
-        max-width: 100% !important;
-
-        grid-template-columns: 1fr !important;
-
-        padding: 15px !important;
-        margin: 25px auto !important;
-    }
-
-
-    /* =================================
-       PRODUCTS
-    ================================= */
-
-    .products-section {
-        width: 100% !important;
-        padding: 40px 12px !important;
-    }
-
-    .products-grid {
-        width: 100% !important;
-        max-width: 100% !important;
-
-        grid-template-columns: 1fr !important;
-
-        gap: 18px !important;
-    }
-
-    .product-card {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-
-    .products-header h1 {
-        font-size: 32px !important;
-    }
-
-
-    /* =================================
-       ABOUT
-    ================================= */
-
-    .about-page {
-        width: 100% !important;
-        padding: 45px 15px !important;
-    }
-
-    .about-box {
-        width: 100% !important;
-        max-width: 100% !important;
-
-        padding: 25px 18px !important;
-
-        display: flex !important;
-        flex-direction: column !important;
-
-        gap: 20px !important;
-    }
-
-    .about-icon {
-        min-width: 130px !important;
-        width: 130px !important;
-        height: 130px !important;
-    }
-
-
-    /* =================================
+    /* =========================
        CONTACT
-    ================================= */
+    ========================= */
 
-    .contact-page {
-        width: 100% !important;
-        padding: 45px 15px !important;
+    .clean-contact {
+        width: 100%;
+        max-width: 100%;
+        padding: 30px 15px;
     }
-
-    .contact-cards {
-        width: 100% !important;
-
-        grid-template-columns: 1fr !important;
-
-        gap: 18px !important;
-    }
-
-    .contact-card {
-        width: 100% !important;
-    }
-
-
-    /* =================================
-       FEED
-    ================================= */
-
-    .feed-section {
-        padding: 15px !important;
-    }
-
-    .feed-list {
-        width: 100% !important;
-
-        grid-template-columns: 1fr !important;
-    }
-
-    .feed-item {
-        width: 100% !important;
-
-        flex-wrap: wrap !important;
-    }
-
-
-    /* =================================
-       SEARCH
-    ================================= */
-
-    .search-box {
-        width: calc(100% - 30px) !important;
-        max-width: 350px !important;
-
-        margin: 15px auto !important;
-    }
-
-    #searchResult {
-        width: calc(100% - 30px) !important;
-        max-width: 400px !important;
-
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-
-
-    /* =================================
-       CONTACT BOX
-    ================================= */
 
     .contact-box {
-        width: 100% !important;
-        max-width: 100% !important;
-
-        padding: 35px 18px !important;
+        width: 100%;
+        max-width: 100%;
     }
 
-
-    /* =================================
-       ANNOUNCEMENT BAR
-    ================================= */
-
-    .announcement-bar {
-        width: 100% !important;
-        max-width: 100% !important;
-
-        overflow: hidden !important;
+    .contact-actions {
+        flex-wrap: wrap;
+        justify-content: center;
     }
-
-} 
+}
