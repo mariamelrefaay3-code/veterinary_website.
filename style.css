@@ -3150,35 +3150,414 @@ body {
     }
 }
 
-  
- @media (max-width: 768px) {
-  html, body {
-    width: 1250px;
-    overflow-x: hidden;
-  }
-  
-  body {
-    zoom: 0.41; /* ثبتناه على 0.41 عشان يكون وسط ممتاز */
-    transform: none !important;
-  }
+  /* =====================================
+   📱 MOBILE RESPONSIVE FIX
+===================================== */
 
-  /* ظبطة الشريط الاحترافية عشان الكلمات ما تدخلش في بعضها أبداً */
-  header, .navbar, nav {
-    width: 1250px !important;
-    max-width: none !important;
-    margin: 0 auto !important;
-    display: flex !important;
-    flex-wrap: nowrap !important; /* بتمنع أي كلمة تنزل تحت تانية */
-    justify-content: space-between !important;
-    align-items: center !important;
-    gap: 15px !important; /* بتعمل مسافة مظبوطة بين كل كلمة والتانية عشان ما يلزقوش */
-    position: relative !important;
-  }
+@media screen and (max-width: 768px) {
 
-  /* تصغير حجم خط الشريط حاجة بسيطة بس عشان يبعدوا عن بعض ويتفردوا براحتهم */
-  header a, .navbar a, nav a {
-    font-size: 22px !important; /* تصغير طفيف للخط يناسب المقاس */
-    white-space: nowrap !important;
-  }
-}
-  
+    /* منع الصفحة من الخروج يمين وشمال */
+    html,
+    body {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+    * {
+        box-sizing: border-box !important;
+    }
+
+    /* الصور */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+
+    /* =================================
+       NAVBAR
+    ================================= */
+
+    .navbar-wrapper {
+        top: 8px !important;
+        left: 8px !important;
+        right: 8px !important;
+        padding: 0 !important;
+    }
+
+    .custom-navbar {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 8px 10px !important;
+
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 6px !important;
+
+        border-radius: 20px !important;
+    }
+
+    .nav-logo {
+        font-size: 11px !important;
+        max-width: 100% !important;
+    }
+
+    .nav-logo .logo-img {
+        width: 28px !important;
+        height: 28px !important;
+    }
+
+    .nav-links {
+        width: 100% !important;
+
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+
+        gap: 3px !important;
+    }
+
+    .nav-links a {
+        font-size: 10px !important;
+        padding: 5px 7px !important;
+        margin: 0 !important;
+    }
+
+    .nav-actions {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 5px !important;
+    }
+
+    .search-mini {
+        max-width: 125px !important;
+    }
+
+    .search-mini input {
+        width: 70px !important;
+        font-size: 10px !important;
+    }
+
+    .lang-btn {
+        font-size: 10px !important;
+        padding: 5px 8px !important;
+    }
+
+    .cta-btn {
+        font-size: 10px !important;
+        padding: 5px 9px !important;
+    }
+
+
+    /* =================================
+       مسافة تحت النافبار
+    ================================= */
+
+    body {
+        padding-top: 145px !important;
+    }
+
+
+    /* =================================
+       HERO
+    ================================= */
+
+    .hero {
+        width: 100% !important;
+        min-height: auto !important;
+
+        padding: 30px 15px !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        gap: 30px !important;
+
+        overflow: visible !important;
+    }
+
+    .hero-text,
+    .hero-content,
+    .hero-container {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        position: relative !important;
+
+        /* مهم جدًا: عندك -180px عامل مشكلة */
+        top: 0 !important;
+
+        text-align: center !important;
+    }
+
+    .hero-text h1 {
+        font-size: 32px !important;
+        line-height: 1.4 !important;
+    }
+
+    .hero-text p {
+        font-size: 15px !important;
+        line-height: 1.8 !important;
+    }
+
+
+    /* أزرار الهيرو */
+
+    .hero-buttons {
+        width: 100% !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        align-items: center !important;
+        gap: 12px !important;
+    }
+
+    .hero-btn.white-btn,
+    .hero-dropdown .hero-btn {
+        width: min(240px, 90%) !important;
+        height: 55px !important;
+        font-size: 15px !important;
+    }
+
+
+    /* =================================
+       دائرة صورة الحيوان
+    ================================= */
+
+    .hero-animal {
+        width: 280px !important;
+        height: 280px !important;
+        max-width: 100% !important;
+    }
+
+    .circle-one {
+        width: 250px !important;
+        height: 250px !important;
+    }
+
+    .circle-two {
+        width: 195px !important;
+        height: 195px !important;
+    }
+
+    .animal-card {
+        width: 180px !important;
+        height: 180px !important;
+
+        min-width: 180px !important;
+        min-height: 180px !important;
+    }
+
+
+    /* =================================
+       العناوين
+    ================================= */
+
+    h1 {
+        font-size: 32px !important;
+    }
+
+    h2,
+    h3 {
+        font-size: 27px !important;
+    }
+
+
+    /* =================================
+       الأقسام
+    ================================= */
+
+    .categories-section {
+        width: 100% !important;
+        padding: 50px 15px !important;
+    }
+
+    .categories-section .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .categories-grid {
+        width: 100% !important;
+
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+
+        gap: 20px !important;
+    }
+
+    .category-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .card-img-wrapper {
+        width: 100% !important;
+        height: 200px !important;
+    }
+
+
+    /* =================================
+       SERVICES
+    ================================= */
+
+    .services {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        grid-template-columns: 1fr !important;
+
+        padding: 15px !important;
+        margin: 25px auto !important;
+    }
+
+
+    /* =================================
+       PRODUCTS
+    ================================= */
+
+    .products-section {
+        width: 100% !important;
+        padding: 40px 12px !important;
+    }
+
+    .products-grid {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        grid-template-columns: 1fr !important;
+
+        gap: 18px !important;
+    }
+
+    .product-card {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .products-header h1 {
+        font-size: 32px !important;
+    }
+
+
+    /* =================================
+       ABOUT
+    ================================= */
+
+    .about-page {
+        width: 100% !important;
+        padding: 45px 15px !important;
+    }
+
+    .about-box {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        padding: 25px 18px !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        gap: 20px !important;
+    }
+
+    .about-icon {
+        min-width: 130px !important;
+        width: 130px !important;
+        height: 130px !important;
+    }
+
+
+    /* =================================
+       CONTACT
+    ================================= */
+
+    .contact-page {
+        width: 100% !important;
+        padding: 45px 15px !important;
+    }
+
+    .contact-cards {
+        width: 100% !important;
+
+        grid-template-columns: 1fr !important;
+
+        gap: 18px !important;
+    }
+
+    .contact-card {
+        width: 100% !important;
+    }
+
+
+    /* =================================
+       FEED
+    ================================= */
+
+    .feed-section {
+        padding: 15px !important;
+    }
+
+    .feed-list {
+        width: 100% !important;
+
+        grid-template-columns: 1fr !important;
+    }
+
+    .feed-item {
+        width: 100% !important;
+
+        flex-wrap: wrap !important;
+    }
+
+
+    /* =================================
+       SEARCH
+    ================================= */
+
+    .search-box {
+        width: calc(100% - 30px) !important;
+        max-width: 350px !important;
+
+        margin: 15px auto !important;
+    }
+
+    #searchResult {
+        width: calc(100% - 30px) !important;
+        max-width: 400px !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+
+    /* =================================
+       CONTACT BOX
+    ================================= */
+
+    .contact-box {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        padding: 35px 18px !important;
+    }
+
+
+    /* =================================
+       ANNOUNCEMENT BAR
+    ================================= */
+
+    .announcement-bar {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        overflow: hidden !important;
+    }
+
+} 
