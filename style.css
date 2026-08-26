@@ -939,7 +939,7 @@ nav a {
 }
 .hero {
     min-height: 520px;
-    padding: 60px 8%;
+    padding: 100px 8%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -953,7 +953,9 @@ nav a {
     flex-direction: column;
 
     text-align: center;}
-
+.hero-animal {
+    margin-top: 35px;
+}
 .hero-small {
     display: inline-block;
     padding: 8px 18px;
