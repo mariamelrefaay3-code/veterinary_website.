@@ -953,7 +953,7 @@ nav a {
     max-width: 550px;
     flex-direction: column;
 
-    text-align: center;}
+    text-align: center;
 }
 .hero-small {
     display: inline-block;
@@ -1020,7 +1020,7 @@ nav a {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;.hero-animal {
+    justify-content: center;
     
     
 }
