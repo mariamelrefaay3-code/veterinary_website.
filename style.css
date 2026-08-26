@@ -939,7 +939,8 @@ nav a {
 }
 .hero {
     min-height: 520px;
-    padding: 200px 8%;
+    padding: 60px 8%;
+      margin-top: 50px;  
     display: flex;
     align-items: center;
     justify-content: space-between;
