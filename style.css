@@ -950,9 +950,9 @@ nav a {
 
 .hero-text {
     max-width: 550px;
-    direction: rtl;
-    text-align: right;
-}
+    flex-direction: column;
+
+    text-align: center;}
 
 .hero-small {
     display: inline-block;
