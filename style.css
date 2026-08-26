@@ -3085,3 +3085,24 @@ body {
     white-space: nowrap !important;
   }
 }
+.hero {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin: 0 auto;
+}
+
+.hero-animal {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+}
