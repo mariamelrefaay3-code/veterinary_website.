@@ -955,7 +955,7 @@ nav a {
 
     text-align: center;}
 .hero-animal {
-    margin-top: 35px;
+    margin-top: 40px; /* دي مسافة للوجو من فوق */
 }
 .hero-small {
     display: inline-block;
@@ -1022,7 +1022,9 @@ nav a {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center;.hero-animal {
+    margin-top: 40px; /* دي مسافة للوجو من فوق */
+    
 }
 
 .circle {
