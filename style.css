@@ -939,7 +939,7 @@ nav a {
 }
 .hero {
     min-height: 520px;
-    padding: 150px 8%;
+    padding: 200px 8%;
     display: flex;
     align-items: center;
     justify-content: space-between;
