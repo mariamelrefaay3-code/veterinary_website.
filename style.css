@@ -3088,3 +3088,8 @@ body {
     white-space: nowrap !important;
   }
 }
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: 25px !important;
+    }
+}
