@@ -954,6 +954,7 @@ nav a {
     flex-direction: column;
 
     text-align: center;
+     margin-top: 250px;
 }
 .hero-small {
     display: inline-block;
