@@ -1022,8 +1022,7 @@ nav a {
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    
+     left: 70px;    
 }
 
 .circle {
